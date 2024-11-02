@@ -94,9 +94,15 @@ namespace DesyncDetection
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string path = @"C:\Users\suppo\Desktop\RSX\RSX\RtxEaiPortServer.ini.template";
-            INIText = File.ReadAllLines(path);
-            cmbSeconds.SelectedIndex = 1;
+            try
+            {
+                string path = @"RSX\RtxEaiPortServer.ini.template";
+                INIText = File.ReadAllLines(path);
+                cmbSeconds.SelectedIndex = 1;
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error loading RSX template file: " + ex.Message);
+            }
         }
 
         private void configurationDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,7 +235,7 @@ namespace DesyncDetection
 
                         Thread.Sleep(1000);
 
-                        if (CheckFileForZeros(transceiverName, transceiver))
+                        if (CheckFileForZeros("RSX\\" + transceiverName, transceiver))
                         {
                             return true;
                         }
@@ -307,7 +313,7 @@ namespace DesyncDetection
         {
             foreach (var process in Process.GetProcessesByName("rsx_rfp"))
             {
-                process.Kill();
+                process.CloseMainWindow();
             }
         }
 
