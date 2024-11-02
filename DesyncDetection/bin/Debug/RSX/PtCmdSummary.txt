@@ -1,0 +1,175 @@
+This file lists all the Product Test commands by command group.
+Commands marked with + are enabled for this project.
+Commands marked with - are disabled for this project.
+
+<< Common >>
+ + SetTestMode (0x0001) - This command is used to request the DUT to enter or exit DECT test mode. The DUT will do a warm start after this command has been handled.
+ + GetVersion (0x0016) - This command is used to read the SW version number.
+ + Reset (0x0028) - Used to request the DUT to reset. The DUT waits for the EE write cache to become empty before it resets.
+ + GetLinkDate (0x0029) - This command is used to request the SW link date and time.
+ + GetEeCacheState (0x004C) - This command is used to get the current state of the write cache in the EEPROM driver.
+ + GetProdData (0x009C) - This command is used to read some data form the part of the EEPROM reserved for the production.
+ + SetProdData (0x009D) - This command is used to write some data to the part of the EEPROM reserved for the production.
+ + AmCmd (0x00CF) - This command is used to send a test command to the Audio manager in the DUT.
+ + SetNvs (0x0100) - This command is used to write data to the NVS (EEPROM).
+ + GetNvs (0x0101) - This command is used to read data from the NVS.
+ + NvsDefault (0x0102) - This command is used to do a default programming of the NVS / EEPROM in the DUT. Two cfm messages are sent back to the PC as response to this command. The first with Status == RSS_PENDING is sent when the default programming is started and the second with Status=RSS_SUCCESS is sent when the default programming has finished.
+ + SetCountry (0x0103) - This command is used to set/default the country specific parameters in the EEPROM/NVS of the DUT.
+ + GetCountry (0x0104) - This command is used to read the country setting/parameter form the EEPROM/NVS of the DUT.
+ + SetProvider (0x0105) - This command is used to set/default the provider specific parameters in the EEPROM/NVS of the DUT.
+ + GetProvider (0x0106) - This command is used to read the provider setting/parameter form the EEPROM/NVS of the DUT.
+ + SetAutoTest (0x0107) - This command is used to set the AutoTest parameter in the EEPROM/NVS of the DUT.
+ + GetAutoTest (0x0108) - This command is used to read the AutoTest parameter stored in the EEPROM/NVS of the DUT.
+ + SetInitialTestMode (0x0109) - Set InitialTestMode in NVS. It can be used to automatically set the DUT in testmode at next power up.
+ + AudioCfgCmd (0x010A) - This command is used to retrived info about the local audio task the DUT.
+ + SetImageCfg (0x010B) - This command is used to select active image. MSB selects if COLA application should be enabled
+
+<< BB >>
+ + SetBandGap (0x003F) - This command is used to set/adjust the band gap in the SC144xx and store it in the EEPROM.
+ + GetBandGap (0x0300) - This command is used to read the band gap setting from the EEPROM.
+ + SetAudioLb (0x0062) - This command is used to request the DUT to enable/disable audio loop back (earpiece on a handset typically).
+ + SetAudioLbHeadset (0x0063) - This command is used to request the DUT to enable/disable audio loop back on the headset.
+ + SetAudioLbHandsfree (0x008D) - This command is used to request the DUT to enable/disable audio loop back on the handsfree.
+ + PlayToneEarpiece (0x008A) - This command is used to request the DUT to play a tone in the earpiece.
+ + PlayToneSpeaker (0x008B) - This command is used to request the DUT to play a tone in the handsfree speaker.
+ + PlayToneHeadset (0x0093) - This command is used to request the DUT to play a tone in the headset.
+ + GetMicRms (0x0301) - This command is used to read/calculate the RMS of the microphone.
+ + SetLed (0x0302) - This command is used to switch a LED on/off.
+ + SetBacklight (0x0303) - This command is used to switch the backlight on/off.
+ + GetAdc (0x0304) - This command is used to read the ADC specified.
+ + SetAudioFECfg (0x0305) - This command is used to setup audio front-end configurations.
+ + GetAudioFECfg (0x0306) - This command is used to retrieve audio front-end configurations.
+
+<< RF >>
+ + GetRssi (0x000A) - This command is used to get the current uncompensated RSSI level on the Rx slot of the connection. If more than one connection, the RSSI of the first connection is returned.
+ + GetRssiContRx (0x000F) - This command is used to get the current uncompensated RSSI level in continuous RX mode.
+ + SetDiversityMode (0x0013) - This command is used to set the DiversityMode temporarily in the RAM (EEPROM in RAM).
+ + SetId (0x001B) - This command is used to set the RFPI of a base or IPEI of a handset.
+ + GetId (0x001C) - This command is used to get the RFPI of a base or IPEI of a handset.
+ + SetContTx (0x002B) - This command is used to set the DUT in continuous TX mode on the channel specified.
+ + SetContRx (0x002E) - This command is used to set the DUT in continuous RX mode on the channel specified.
+ + SetBurstMode (0x002F) - This command is used to set the DUT in burst TX mode on the channel and antenna specified.
+ + SetAdvBurstMode (0x0030) - This command is used to set the DUT in burst TX mode on the channel and antenna specified.
+ + SetRfClock (0x0040) - This command is used to enable or disable the RF clock inntest mode. Test mode is exited if RfClockEnabled = FALSE
+ + SetFixedFrequency (0x0045) - This command is used to set the DUT in TX mode on fixed frequency. Used in 2G4 and 5G8.
+ + SetDectMode (0x0200) - This command is used to set the DECT mode of the device.
+ + GetDectMode (0x007C) - This command is used to get the current DECT mode of the device.
+ + SetModulation (0x0012) - This command is used to set the TX modulation.
+ + GetModulation (0x0201) - This command is used to read the TX modulation stored in the NVS.
+ + GetLockState (0x0094) - This command is used to get the lock state.
+ + SetRssiLimitFp (0x0202) - This command is used to set the RSSI limit in the NVS.
+ + SetRssiLimitPp (0x0203) - This command is used to set the RSSI limit in the NVS.
+ + SetFreq (0x0204) - This command is used to set the clock frequency in the NVS and adjust the clock in the SC144xx
+ + GetFreq (0x0205) - This command is used to get the current clock frequency used.
+ + GetFreqNvs (0x0206) - This command is used to get clock frequency setting stored in the NVS.
+ + SetEnroll (0x009F) - This command is used to set the enroll bit in the FP.
+ + SetEnrolmentData (0x0207) - This command is used to set enrolment data on base and handset. This makes it possible to register a handset on a base via the test interface without any communication over the air interface.
+ + SetRfPowerLevelDbm (0x0208) - This command is used to set the power level in dBm.
+ + SetRfPowerLevelPort (0x0209) - This command is used to set power level port setting.
+ + SetRfPowerLevelTableEntry (0x020A) - This command is used to set an entry in the power level table.
+ + GetRfPowerLevelTableEntry (0x020B) - This command is used to get an entry form the power level table.
+ + SetRfPowerLevelAlgorithm (0x020C) - This command is used to enable and disable the power control algorithm.
+ + GetRfPowerLevelAlgorithm (0x020D) - This command is used to check whether the power control algorithm is enabled.
+ + SetDummyBearer (0x020E) - Sets the slot and frequency for the dummy bearer
+ + Set4x1PowerLevelParms (0x020F) - Set the NVS parameters for 4x1 (481, 441, ..., LMX4181) RF transmit power level. For some projects this will require RF reinitialization to take effect (e.g. SetTestMode or SetBurstMode).
+ + SetRfBandgap (0x0210) - Set the bandgap in the RF. Has immidiate effect.
+ + SetRssiLimitFp_LowerThreshold (0x0211) - This command is used to set the RSSI limit (Lower Threshold) in the NVS.
+ + SetAc (0x0212) - This command is used to set the access code in the FP.
+ + GetAc (0x0213) - This command is used to get the current access code stored in the FP.
+ + GetRfPatchLength (0x0214) - Get the number of activated RF patches.
+ + SetRfPatchLength (0x0215) - Set the number of activated RF patches.
+ + GetRfPatch (0x0216) - Get an RF patch from NVS. The patch may not be active
+ + SetRfPatch (0x0217) - Write an RF patch into NVS. Note that for the RF patch to be active, the RF patch length must also be set.
+ + RegListSelection (0x0218) - This command is used to select a set of predefined enrolment parameters stored in the PP.
+ + SetMultiBandMode (0x0219) - Defines if PP should search for FP in all possible frequency bands.
+ + GetMultiBandMode (0x021A) - Get the current status of multi band search.
+ + MmiHook (0x021B) - Hook handset on/off
+
+<< CAT-iq >>
+ + SetPpCapability (0x0580) - This command is used to set all bits except the Codec list in the PpCapability var stored in the NVS for the PP device selected.
+ + GetPpCapability (0x0581) - This command is used to get all bits except the Codec list of the PpCapability var stored in the NVS for the PP device selected.
+ + SetPpCapabilityCodecList (0x0582) - This command is used to set the codec list in the PpCapability var stored in the NVS for the PP device selected.
+ + GetPpCapabilityCodecList (0x0583) - This command is used to get the codec list of the PpCapability var stored in the NVS for the PP device selected.
+ + SetInternalName (0x0584) - This command is used to set the name of the handset(PP) in the internal names list in the FP.
+ + GetInternalName (0x0585) - This command is used to get the name of the handset(PP) stored in the internal names list in the FP.
+ + SetEnrolledBaseInfo (0x0586) - This command is used to set information about the enrolled base stored in the PpEnrolledBase var in the NVS of the PP.
+ + GetEnrolledBaseInfo (0x0587) - This command is used to get information about the enrolled base stored in the PpEnrolledBase var in the NVS of the PP.
+ + SetEnrolledBaseInfoCodecList (0x0588) - This command is used to set the codec list used for the base stored in the PpEnrolledBase var in the NVS of the PP.
+ + GetEnrolledBaseInfoCodecList (0x0589) - This command is used to get the codec list stored in the PpEnrolledBase var in the NVS of the PP.
+
+<< Battery >>
+ + CalibrateSoc (0x0480) - This command is used to request the DUT to start the calibration of the SOC conversion factor through internal or external current source. SOC calibration factor is automatically written into NVS
+ + GetBatt (0x0481) - This command is used to request the DUT to start the calibration of the SOC conversion factor through internal or external current source.
+ + SetNoBatt (0x0482) - This command is used to write battery NO voltage parameter in Eeprom and RAM.
+ + SetLowBatt (0x0483) - This command is used to write the low battery voltage parameter in Eeprom and RAM.
+ + SetHighBatt (0x0484) - This command is used to write the high battery voltage parameter in Eeprom and RAM.
+ + SetBattTemp (0x0485) - This command is used to sets the battery temperature coefficient in the eeprom.
+ + GetBattTemp (0x0486) - This command is used to get the current battery temperature.
+ + GetBattCurrent (0x0487) - This command is used to get the current consumption.
+ + SetBattCapacity (0x0488) - This command is used to set the current battery capacity in %.
+ + GetCradle (0x0489) - This command is used to get the current cradle state.
+ + SetCharge (0x048A) - This command is used to set the charge port ON or OFF.
+
+<< GAP >>
+ + GapLocOff (0x0500) - This command is used to disable location update.
+ + GapLocOn (0x0501) - This command is used to enable location update.
+ + GapAuthOff (0x0502) - This command is used to disable authentication.
+ + GapAuthOn (0x0503) - This command is used to enable authentication.
+ + GapRelease (0x0504) - This command is used to release the current connection to the GAP tester.
+ + GapTerm (0x0505) - This command is used to terminate a registeration.
+ + GapRevoke (0x0506) - This command is used to revoke a registeration.
+ + GapTermAll (0x0507) - This command is used to terminate all registerations.
+ + GapRevokeAll (0x0508) - This command is used to revoke all registerations.
+ + GapStartAuth (0x0509) - This command is used to start authentication when testing TBR22.
+
+<< PSTN line >>
+ + PstnCmd (0x0097) - This command is used to send a PSTN test command to the DUT.
+ + LiHookOff (0x0097) - This command is used to request the DUT to hook off on the PSTN line.
+ + LiHookOn (0x0097) - This command is used to request the DUT to hook on on the PSTN line.
+ + LiImpOff (0x0097) - This command is used to request the DUT to deactivate the pulse-dial impedance.
+ + LiImpOn (0x0097) - This command is used to request the DUT to activate the pulse-dial impedance.
+ + LiClipImpOff (0x0097) - This command is used to request the DUT to deactivate the clip impedance.
+ + LiClipImpOn (0x0097) - This command is used to request the DUT to activate the clip impedance.
+ + LiGndLoopOff (0x0097) - This command is used to request the DUT to deactivate the ground loop signal.
+ + LiGndLoopOn (0x0097) - This command is used to request the DUT to activate the ground loop signal.
+ + LiGetRingDetect (0x0097) - This command is used to read the ring detect status.
+ + LiGetAdc (0x0097) - This command is used to read one of the line ADC's.
+ + LiDtmfTone (0x0097) - This command is used to request the DUT to generate a continuous DTMF tone.
+ + LiGetRlr (0x0097) - This command is used to read the RLR.
+ + LiSetRlr (0x0097) - This command is used to read the RLR.
+ + LiGetSlr (0x0097) - This command is used to read the SLR.
+ + LiSetSlr (0x0097) - This command is used to read the RLR.
+ + LiGetRms (0x0097) - This command is used to read the mic RMS either via power-level detector on CODEC or via power-level-detector inside LEC.
+ + LiEcOff (0x0097) - This command is used to deactivate the echo canceller.
+ + LiEcSupOff (0x0097) - This command is used to deactivate the echo suppressor.
+ + LiDial (0x0097) - This command is used to dial a single key.
+ + LiHookRelayOff (0x0097) - This command is used to deactivate the hook-relay signal.
+ + LiHookRelayOn (0x0097) - This command is used to activate the hook-relay signal.
+ + LiGetRms2 (0x0097) - Read rms that always uses PLEVDET on CODEC
+ + LiMultiKeypad (0x0097) - This command is used to dial multiple keys.
+ + LiParHiSensOn (0x0097) - This command is used to activate high-sensitivity parallel detection.
+ + LiParHiSensOff (0x0097) - This command is used to deactivate high-sensitivity parallel detection.
+ + LiSetPropShortDtmfTime (0x0097) - This command is used to set the short DTMF time (used for Call Waiting Deluxe) property.
+ + LiSetPropDialPause (0x0097) - This command is used to set the dial pause property.
+ + LiSetPropLoopBreakTime (0x0097) - This command is used to set the loop-break time for R if R_TimeSel = 3; unit = 10ms.
+ + LiSetPropEarthBreakTime (0x0097) - This command is used to set the earth-break time for R if R_TimeSel = 3; unit = 10ms.
+ + LiSetPropDialMode (0x0097) - This command is used to set the dial mode property.
+ + LiSetPropCalibbrkFlashSel (0x0097) - This command is used to set flash select property.
+ + LiSetPropCalibbrkEarthSel (0x0097) - This command is used to set earth select property.
+ + LiSetPropPulseDialEnable (0x0097) - This command is used to set the pulse dial enable property.
+ + LiSetPropCountry (0x0097) - This command is used to set the country setting for the line.
+ + LiSetPlugPolAdcZpOffset (0x0097) - This command is used to set the plug/pol ADC zero-point.
+ + LiSetDtmfTxAtt (0x0097) - This command is used for setting the DTMF generator attenuation in the Tx-direction.
+ + LiSetDtmfTwist (0x0097) - This command is used for setting the DTMF generator twist.
+ + LiSetTxLimiterThrs (0x0097) - This command is used for setting the Tx-Limiter threshold.
+ + LiSetDtmfDetOnhThrs (0x0097) - This command is used for setting the DTMF detector threshold used in onhook-state.
+ + LiSetDtmfDetOfhThrs (0x0097) - This command is used for setting the DTMF detector threshold used in offhook-state.
+ + LiSetFskDetOnhThrs (0x0097) - This command is used for setting the FSK detector threshold used in onhook-state.
+ + LiSetFskDetOfhThrs (0x0097) - This command is used for setting the FSK detector threshold used in offhook-state.
+ + LiSetDtasDetThrs (0x0097) - This command is used for setting the DTAS detector threshold.
+ + LiSetCasDetThrs (0x0097) - This command is used for setting the CAS detector threshold.
+ + LiSetMftDetThrs (0x0097) - This command is used for setting the DTAS detector threshold.
+
+<< TamDrv >>
+ + VoicePromptDownload (0x0600) - This command is used to trigger a voice prompt download to target.
+ + VoicePromptUpload (0x0601) - This command is used to trigger a voice prompt upload from target.

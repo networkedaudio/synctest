@@ -1,0 +1,83 @@
+56
+1 1 1 1 1
+58
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+1 1 0 1
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+1 1 0 1
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0
+0
+0
+0
+0 0
+19 17152 0
+
+1
+19 17152 0 
+InitMail to be read from eeprom at startup in tbhandletask
+ - RSX mailinit format: 1 byte length(primitive + Data[]) - 1 byte TaskId - Primitive Lsb - (Primitive Msb) - Data[0] - ... 
+ - Mails can be copied from mail.opt and pasted in eeprom editor on EEPROM_RDBG_INITMAIL_OFFS address and forward
+ - Update EEPROM_RDBG_INITMAIL_NUMBER_OFFS address with number of mails copied
+RSX mailtrace init from download options menu - stored in rdbg init mailtrace hex format
+00 00 
+
+
+0x00 0x00 
+
+RSX SendMail dialog mails - stored in rdbg init mailtrace hex format 
+02 13 00 43 
+RSX mailinit format end

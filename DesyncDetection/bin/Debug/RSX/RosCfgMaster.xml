@@ -1,0 +1,1046 @@
+﻿<rtxinterface xmlns:xsi="http\://www.w3.org/2001/XMLSchema-instance" xsi:noNameSpaceSchemaLocation="RtxIfDef.xsd">
+  <group name="Project Master" master="1">
+    <tasks>
+      <task name="RTX_EAI_TASK" id="0x0000" taskfunction="RtxEaiTask" initfunction="RtxEaiTaskInit" description="RTX EAI task - MUST have id = 0!" />
+      <task name="API_TASK" id="0x0001" taskfunction="ApiTask" initfunction="ApiTaskInit" description="Must Not be moved" />
+      <task name="MOD_TEST_TASK" id="0x0002" taskfunction="ModTestTask" initfunction="ModTestTaskInit" condition="defined(MODULE_TEST)" description="Must Not be moved - Module Test Task" />
+      <task name="DRV_MNG_TASK" id="0x0003" taskfunction="DrvMngTask" initfunction="DrvMngTaskInit" description="Device driver manager task" />
+      <task name="EEPROM_TASK" id="0x0004" taskfunction="EepromTask" initfunction="NULL" description="EEPROM task" />
+      <task name="RTX_EAI_PROXY_TASK" id="0x0005" taskfunction="RtxEaiProxyTask" initfunction="NULL" description="RTX EAI proxy task" />
+      <task name="TESTBUS_INTERRUPT_TASK" id="0x0006" taskfunction="NULL" initfunction="NULL" />
+      <task name="PT_TASK" id="0x0007" taskfunction="PtTask" initfunction="NULL" />
+      <task name="UART_TASK" id="0x0008" taskfunction="UartTask" initfunction="NULL" />
+      <task name="VES_TASK" id="0x0009" taskfunction="VesTask" initfunction="VesTaskInit" condition="!defined(VES_USE_TASK) || (defined(VES_USE_TASK) &amp;&amp; VES_USE_TASK == 1)" />
+      <task name="ISP_TASK" id="0x000A" taskfunction="IspTask" initfunction="RosTaskInitMail" condition="defined(PROJCFG_FWU_MODE) || (defined(ISP_USE_TASK) &amp;&amp; ISP_USE_TASK == 1)" />
+      <task name="BASECTRL_TASK" id="0x000B" taskfunction="IwuTask" initfunction="NULL" />
+      <task name="ERROR_TASK" id="0x000C" taskfunction="RosTaskDummy" initfunction="NULL" />
+      <task name="FP_SERVICE_TASK" id="0x000D" taskfunction="RosTaskDummy" initfunction="NULL" />
+      <task name="FP_LC_TASK" id="0x000E" taskfunction="NULL" initfunction="NULL" />
+      <task name="FP_LCE_TASK" id="0x000F" taskfunction="NULL" initfunction="NULL" />
+      <task name="FP_LAPC_TASK" id="0x0010" taskfunction="NULL" initfunction="NULL" />
+      <task name="IWU_TASK" id="0x0011" taskfunction="IwuTask" initfunction="IwuTaskInit" />
+      <task name="DPI_SIM_TASK" id="0x0012" taskfunction="DpiSimTask" initfunction="DpiSimTaskInit" condition="(defined(FP_DLC_EMBEDDED) || defined (ARCH_FRAME))" />
+      <task name="HOST_APP_TASK" id="0x0013" taskfunction="HostAppTask" initfunction="HostAppTaskInit" />
+      <task name="LED_TASK" id="0x0014" taskfunction="Led_Task" initfunction="Led_TaskInit" />
+      <task name="DIAGS_TASK" id="0x0015" taskfunction="DiagsTask" initfunction="DiagsTaskInit" />
+      <task name="SPI_DRIVER_TASK" id="0x0016" taskfunction="SpiDriverTask" initfunction="SpiDriverTaskInit" />
+      <task name="FWU_MANAGER_TASK" id="0x0017" taskfunction="FwuManagerTask" initfunction="FwuManagerTaskInit" condition="defined(PROJCFG_FWU_MODE)" />
+      <task name="MAC_INTERRUPT_TASK" id="0x001F" taskfunction="NULL" initfunction="NULL" />
+      <task name="FP_CSF_TASK" id="0x0020" taskfunction="FpCsfTask" initfunction="FpCsfTaskInit" legacy="1" />
+      <task name="FP_CCF_TASK" id="0x0021" taskfunction="FpCcfTask" initfunction="FpCcfTaskInit" legacy="1" />
+      <task name="FP_RSSI_SCAN_TASK" id="0x0022" taskfunction="FpRssiScanTask" initfunction="FpRssiScanTaskInit" legacy="1" />
+      <task name="FWU_PRV_TASK" id="0x0038" taskfunction="FwuProviderTask" initfunction="FwuProviderTaskInit" />
+      <task name="FWS_TASK" id="0x0039" taskfunction="FwsTask" initfunction="NULL" condition="defined(PROJCFG_FWU_MODE) &amp;&amp; !defined PCCOMPILE " />
+    </tasks>
+    <mails>
+      <mail primitive="DUMMY_DATA" id="0x0000" />
+      <mail primitive="KEY_MESSAGE" id="0x0001" />
+      <mail primitive="KEY_RELEASE" id="0x0002" />
+      <mail primitive="KEY_PRESS" id="0x0003" />
+      <mail primitive="TIMEOUT" id="0x0004" />
+      <mail primitive="HELLO_STATE_ind" id="0x0005" />
+      <mail primitive="GOODBYE_STATE_ind" id="0x0006" />
+      <mail primitive="INITTASK" id="0x0007" />
+      <mail primitive="TERMINATETASK" id="0x0008" />
+      <mail primitive="TEST_PRIMITIVE" id="0x0009" />
+      <mail primitive="ROS_PM_WAKEUP_ind" id="0x000A" />
+      <mail primitive="ROS_PM_SUSPEND_ind" id="0x000B" />
+      <mail primitive="DRV_MNG_DFC_ind" id="0x0010" />
+      <mail primitive="EE_INVALIDATE_CACHE" id="0x0011" />
+      <mail primitive="EE_INTSIM_READ" id="0x0012" />
+      <mail primitive="EE_INTSIM_WRITE" id="0x0013" />
+      <mail primitive="RTX_EAI_MAIL2TX" id="0x0014" />
+      <mail primitive="UART_TX_DONE" id="0x0015" />
+      <mail primitive="UART_RX_DATA_READY" id="0x0016" />
+      <mail primitive="UART_PMM_TIMEOUT" id="0x0017" />
+      <mail primitive="VES_DEFRAG" id="0x0018" />
+      <mail primitive="SOTI_TIMEOUT" id="0x0019" />
+      <mail primitive="IWU_DPI_MSG_IND" id="0x001A" />
+      <mail primitive="OTA_REG_TIMEOUT" id="0x001B" />
+      <mail primitive="POSTM_LOG_TIMEOUT" id="0x001C" />
+      <mail primitive="IWU_FWU_RFP_START" id="0x001D" />
+      <mail primitive="IWU_FWU_RFP_STOP" id="0x001E" />
+      <mail primitive="IWU_FWU_PP_START" id="0x001F" />
+      <mail primitive="IWU_FWU_PP_STOP" id="0x0020" />
+      <mail primitive="IWU_AMI_RFP_READ_REQ" id="0x0021" />
+      <mail primitive="IWU_AMI_RFP_WRITE_REQ" id="0x0022" />
+      <mail primitive="IWU_AMI_RFP_READ_CFM" id="0x0023" />
+      <mail primitive="IWU_AMI_RFP_WRITE_CFM" id="0x0024" />
+      <mail primitive="IWU_SH_SET_PIN_REQ" id="0x0025" />
+      <mail primitive="IWU_SH_OPEN_AUDIO_REQ" id="0x0026" />
+      <mail primitive="IWU_SH_DEBUG_LOOP_BACK_REQ" id="0x0027" />
+      <mail primitive="RFP_SH_MESSAGE_IND" id="0x0028" />
+      <mail primitive="IWU_MFI_IND" id="0x0029" />
+      <mail primitive="IWU_E1_LOOPBACK_REQ" id="0x002A" />
+      <mail primitive="IWU_E1_READ_MIRROR_REQ" id="0x002B" />
+      <mail primitive="IWU_SH_DEBUG_PCM_TRISTATE_REQ" id="0x002C" />
+      <mail primitive="IWU_MAC_CON_RES_TIMEOUT" id="0x002D" />
+      <mail primitive="IWU_SET_OPERATION_MODE_REQ" id="0x002E" />
+      <mail primitive="IWU_TESTMODE_SIGNAL_TIMEOUT" id="0x002F" />
+      <mail primitive="GFU_CRC_TIMESLIZE" id="0x0030" />
+      <mail primitive="GFU_CRC_CALC_INIT" id="0x0031" />
+      <mail primitive="GFU_START_RESPONSE_TIMEOUT" id="0x0032" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_ADPCM" id="0x0033" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_ADPCM" id="0x0034" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_DATA" id="0x0035" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_DATA" id="0x0036" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_ADPCM" id="0x0037" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_ADPCM" id="0x0038" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_SILENCE" id="0x0039" />
+      <mail primitive="EE_WRITE_DEFAULT_req" id="0x003A" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_SILENCE" id="0x003B" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_DATA" id="0x003C" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_DATA" id="0x003D" />
+      <mail primitive="FP_BMC_DEBUG_TX_LONG_SLOT" id="0x003E" />
+      <mail primitive="FP_BMC_DEBUG_TX_DUMMY_BEARER" id="0x003F" />
+      <mail primitive="FP_BMC_DEBUG_TX_FULL_SLOT" id="0x0040" />
+      <mail primitive="FP_BMC_DEBUG_RX_LONG_SLOT" id="0x0041" />
+      <mail primitive="FP_BMC_DEBUG_RX_FULL_SLOT" id="0x0042" />
+      <mail primitive="FP_MAC_DEBUG_ALLOC_ADPCM_BUFFER_NB" id="0x0043" />
+      <mail primitive="FP_MAC_DEBUG_ALLOC_ADPCM_BUFFER_WB" id="0x0044" />
+      <mail primitive="FP_MAC_DEBUG_ALLOC_ADPCM_BUFFER_WB_ALREADY_ALLOCATED" id="0x0045" />
+      <mail primitive="FP_MAC_DEBUG_FREE_ADPCM_BUFFER" id="0x0046" />
+      <mail primitive="LED_REQ" id="0x0047" />
+      <mail primitive="LED_CFM" id="0x0048" />
+      <mail primitive="LED_SELF_TEST" id="0x0049" />
+      <mail primitive="LED_ON_REQ" id="0x004A" />
+      <mail primitive="LED_ON_CFM" id="0x004B" />
+      <mail primitive="LED_OFF_REQ" id="0x004C" />
+      <mail primitive="LED_OFF_CFM" id="0x004D" />
+      <mail primitive="LED_SET_LEVEL_REQ" id="0x004E" />
+      <mail primitive="LED_CONFIGURE_REQ" id="0x004F" />
+      <mail primitive="LED_TIMER_TIMEOUT" id="0x0050" />
+      <mail primitive="LED_DATA_PARM_IND" id="0x0051" />
+      <mail primitive="LED_INIT_DATA_PARM_REQ" id="0x0052" />
+      <mail primitive="LED_DATA_PARM_CHANGED_IND" id="0x0053" />
+      <mail primitive="DIAGS_ADD_LOG_ENTRY_IND" id="0x0054" />
+      <mail primitive="DIAGS_SAVE_LOG_TIMEOUT" id="0x0055" />
+      <mail primitive="DIAGS_CLEAR_NVS" id="0x0056" />
+      <mail primitive="SPI_DRIVER_TX_DONE" id="0x0057" />
+      <mail primitive="SPI_DRIVER_RX_DATA_READY" id="0x0058" />
+      <mail primitive="FWU_DIRECT" id="0x0059" />
+      <mail primitive="FWU_TRACE" id="0x005A" />
+      <mail primitive="DL_DATA_REQ" id="0x005B" />
+      <mail primitive="DL_DATA_IND" id="0x005C" />
+      <mail primitive="TEST_CMD_req" id="0x005D" />
+      <mail primitive="FWU_MNG_NOUPDATE_IND" id="0x005E" />
+      <mail primitive="FWU_MNG_UPDATE_IND" id="0x005F" />
+      <mail primitive="FWU_MNG_UPDATE_DONE_IND" id="0x0060" />
+      <mail primitive="FWU_PRV_ENABLE_REQ" id="0x0061" />
+      <mail primitive="FWU_PRV_ENABLE_CFM" id="0x0062" />
+      <mail primitive="FWS_RESET_TIMEOUT" id="0x0063" />
+      <mail primitive="FP_BASIC_BEARER_IND" id="0x0100" />
+      <mail primitive="FP_BASIC_BEARER_HANDOVER_IND" id="0x0101" description="Must be placed after BEARER_IN" />
+      <mail primitive="FP_BASIC_CONNECTION_HANDOVER_IND" id="0x0102" description="Must be placed after BEARER_HANDOVER_IN" />
+      <mail primitive="TIMEOUT_RUN_MODULATION_CALIBRATION" id="0x0103" />
+      <mail primitive="FP_MAC_DEBUG_MODCAL" id="0x0104" />
+      <mail primitive="FP_MAC_CON_IND" id="0x0105" />
+      <mail primitive="FP_MAC_DIS_IND" id="0x0106" />
+      <mail primitive="FP_MAC_DIS_REQ" id="0x0107" />
+      <mail primitive="FP_MAC_RFPI_CHECK_REQ" id="0x0108" />
+      <mail primitive="FP_MAC_RFPI_CHECK_CFM" id="0x0109" />
+      <mail primitive="FP_MAC_RSSI_TRACE_IND" id="0x010A" />
+      <mail primitive="MAC_NO_EMISSION_MODE_STOP_IND" id="0x010B" />
+      <mail primitive="MAC_NO_EMISSION_MODE_PENDING_IND" id="0x010C" />
+      <mail primitive="MAC_NO_EMISSION_MODE_ACTIVE_IND" id="0x010D" />
+      <mail primitive="MAC_NO_EMISSION_MODE_STOP_REQ" id="0x010E" />
+      <mail primitive="MAC_ENABLE_NO_EMISSION_MODE" id="0x010F" />
+      <mail primitive="MAC_DISABLE_NO_EMISSION_MODE" id="0x0110" />
+      <mail primitive="TIMEOUT_CC06" id="0x0111" />
+      <mail primitive="PP_AUTHENTICATE_ACC" id="0x0112" />
+      <mail primitive="FP_BEARER_RELEASE_IND" id="0x0113" />
+      <mail primitive="FP_BROADCAST_QUALITY_IND" id="0x0114" />
+      <mail primitive="FP_TIMEOUT_USA_MOVE_DUMMY" id="0x0115" />
+      <mail primitive="FP_MAC_DEBUG_DUMMY_STARTED" id="0x0116" />
+      <mail primitive="FP_MAC_DEBUG_N210_TIMEOUT" id="0x0117" />
+      <mail primitive="FP_BROADCAST_STOPPED_IND" id="0x0118" />
+      <mail primitive="FP_ULP_DLC_ENC_KEY_IND" id="0x0119" />
+      <mail primitive="FP_ULP_ERROR_IND" id="0x011A" />
+      <mail primitive="AUTH_START_REQ" id="0x011B" />
+      <mail primitive="AUTH_LOOP_IND" id="0x011C" />
+      <mail primitive="AUTH_COMPLETION_IND" id="0x011D" />
+      <mail primitive="AUTH_DSAA2_FIRST_STEP_REQ" id="0x011E" />
+      <mail primitive="AUTH_DSAA2_FIRST_STEP_COMPLETE_IND" id="0x011F" />
+      <mail primitive="AUTH_DSAA2_SECOND_STEP_REQ" id="0x0120" />
+      <mail primitive="GF_CHANNEL_DATA_IND" id="0x0121" />
+      <mail primitive="LU10_DEBUG_RX" id="0x0122" />
+      <mail primitive="LU10_DEBUG_TX" id="0x0123" />
+      <mail primitive="LU10_DEBUG_TX_RETRANS" id="0x0124" />
+      <mail primitive="LU10_DEBUG_TX_SENDPACKET" id="0x0125" />
+      <mail primitive="LU10_DEBUG_RX_FU10C_ACK_IN_EMPTY_FU10A" id="0x0126" />
+      <mail primitive="LU10_DEBUG_RX_RETRANS_OF_ALREADY_ACK_PACKET" id="0x0127" />
+      <mail primitive="LU10_DEBUG_RX_ACK" id="0x0128" />
+      <mail primitive="LU10_DEBUG_RX_OUT_OF_SEQ_PDU" id="0x0129" />
+      <mail primitive="LU10_DEBUG_RX_FU10A" id="0x012A" />
+      <mail primitive="LU10_DATA_READY" id="0x012B" />
+      <mail primitive="LU10_DATA_IND" id="0x012C" />
+      <mail primitive="LU10_DEBUG_TX_ACK_IN_FU10C" id="0x012D" />
+      <mail primitive="LU10_DEBUG_TX_IDLE_ACK_IN_FU10C" id="0x012E" />
+      <mail primitive="FP_MAC_CON_RES" id="0x012F" />
+      <mail primitive="LU10_ENABLE_HIGH_CLOCK" id="0x0130" />
+      <mail primitive="LU10_DISABLE_HIGH_CLOCK" id="0x0131" />
+      <mail primitive="LU10_DEBUG_RX_2ND_INFO_FIELD" id="0x0132" />
+      <mail primitive="FP_MAC_DEBUG_DUMMY_NOT_POSSIBLE" id="0x0133" />
+      <mail primitive="M_DATA_DATA_READY" id="0x0134" />
+      <mail primitive="M_DATA_DATA_IND" id="0x0135" />
+      <mail primitive="M_DATA_DATA_REQ" id="0x0136" />
+      <mail primitive="FP_BEARER_RFPI_CHECK_REQ" id="0x0137" />
+      <mail primitive="FP_BEARER_RFPI_CHECK_CFM" id="0x0138" />
+      <mail primitive="FP_MAC_JDECT_ACTIVE_SCAN_DEBUG_IND" id="0x0139" />
+      <mail primitive="FP_MAC_DEBUG1_IND" id="0x013A" />
+      <mail primitive="FP_MAC_DEBUG2_IND" id="0x013B" />
+      <mail primitive="FP_MAC_DEBUG3_IND" id="0x013C" />
+      <mail primitive="FP_MAC_DEBUG4_IND" id="0x013D" />
+      <mail primitive="FP_MAC_DEBUG5_IND" id="0x013E" />
+      <mail primitive="FP_MAC_DEBUG6_IND" id="0x013F" />
+      <mail primitive="FP_MAC_JDECT_ACTIVE_SCAN_PHSD_DEBUG_IND" id="0x0140" />
+      <mail primitive="FP_MAC_JDECT_ACTIVE_SCAN_PHS_DEBUG_IND" id="0x0141" />
+      <mail primitive="FP_MAC_JDECT_INIT_SCAN_PHS_DEBUG0_IND" id="0x0142" />
+      <mail primitive="FP_ADVANCED_BEARER_IND" id="0x0200" />
+      <mail primitive="FP_ADVANCED_BEARER_HANDOVER_IND" id="0x0201" />
+      <mail primitive="FP_BEARER_QUALITY_IND" id="0x0202" />
+      <mail primitive="OLD__FP_BEARER_RELEASE_IND" id="0x0203" />
+      <mail primitive="FP_BEARER_ATTRIBUTES_IND" id="0x0204" />
+      <mail primitive="FP_BEARER_ATTRIBUTES_CFM" id="0x0205" />
+      <mail primitive="FP_CS_DATA_SEGMENT_IND" id="0x0206" />
+      <mail primitive="FP_CDPI_DATA_IND" id="0x0207" />
+      <mail primitive="OLD__FP_BROADCAST_QUALITY_IND" id="0x0208" />
+      <mail primitive="FP_MULTIFRAME_SYNC_IND" id="0x0209" />
+      <mail primitive="FP_TIMEOUT_T218" id="0x020A" />
+      <mail primitive="FP_MAC_STOP_REQ" id="0x020B" />
+      <mail primitive="FP_MAC_DEBUG_DBC_NOT_POSSIBLE" id="0x020C" />
+      <mail primitive="FP_MAC_DEBUG_BUSY" id="0x020D" />
+      <mail primitive="FP_MAC_DEBUG_DBC_RSSI_3_NOT_POSSIBLE" id="0x020E" />
+      <mail primitive="FP_CC_DEBUG_NO_USER_AUTH_NOT_FIRST_INSTANCE" id="0x020F" />
+      <mail primitive="FP_CC_DEBUG_NO_USER_AUTH_TBR_22_ENABLED" id="0x0210" />
+      <mail primitive="FP_CC_DEBUG_NO_USER_AUTH_END_RUNNING" id="0x0211" />
+      <mail primitive="FP_RSSI_SCAN_IND" id="0x0212" />
+      <mail primitive="FP_TIMEOUT_RSSI_SCAN" id="0x0213" />
+      <mail primitive="FP_HANDSET_ENROLLED" id="0x0214" />
+      <mail primitive="FP_HANDSET_DISENROLLED" id="0x0215" />
+      <mail primitive="FP_START_MAC" id="0x0216" />
+      <mail primitive="FP_START_MAC_PCM_SYNC" id="0x0217" />
+      <mail primitive="FP_START_CCF_TIMERS" id="0x0218" />
+      <mail primitive="FP_BEARER_RELEASE_REQ" id="0x0219" />
+      <mail primitive="FP_BEARER_REQ_CON_HO" id="0x021A" />
+      <mail primitive="FP_BEARER_ENC_REQ" id="0x021B" />
+      <mail primitive="FP_MAC_CF_DATA_REQ" id="0x021C" />
+      <mail primitive="FP_CF_DATA_SEGMENT_IND" id="0x021D" />
+      <mail primitive="FP_CS_DATA_SEGMENT_REQ" id="0x021E" />
+      <mail primitive="FP_CDPI_DATA_REQ" id="0x021F" />
+      <mail primitive="FP_BEARER_REQ" id="0x0220" />
+      <mail primitive="FP_BEARER_START_QUALITY_MEASURAMENT_REQ" id="0x0221" />
+      <mail primitive="FP_BEARER_AUDIO_TO_BUFFER_2" id="0x0222" />
+      <mail primitive="FP_BEARER_CFM" id="0x0223" />
+      <mail primitive="FP_CS_DATA_DTR_OK_IND" id="0x0224" />
+      <mail primitive="FP_CS_DATA_DTR_ERROR_IND" id="0x0225" />
+      <mail primitive="FP_CF_DATA_DTR_OK_IND" id="0x0226" />
+      <mail primitive="FP_CF_DATA_DTR_ERROR_IND" id="0x0227" />
+      <mail primitive="FP_CDPI_DATA_DTR_OK_IND" id="0x0228" />
+      <mail primitive="FP_CDPI_DATA_DTR_NOK_IND" id="0x0229" />
+      <mail primitive="FP_MAC_CDPI_DTR_ACK" id="0x022A" />
+      <mail primitive="FP_MAC_CDPI_DTR_NACK" id="0x022B" />
+      <mail primitive="FP_CDPI_DATA_DTR_ERROR_IND" id="0x022C" />
+      <mail primitive="FP_BEARER_ENC_EKS_IND" id="0x022D" />
+      <mail primitive="FP_BROADCAST_CHANNEL_REQ" id="0x022E" />
+      <mail primitive="FP_BROADCAST_QUALITY_IND_REQUEST_DBC" id="0x022F" />
+      <mail primitive="FP_MAC_SET_ENROLL_BIT__EASY_PAIRING" id="0x0230" />
+      <mail primitive="FP_MNCL_UNITDATA_CBI_REQ" id="0x0231" />
+      <mail primitive="FP_MNCL_UNIT_DATA_REQ__SEND_BASE_NAME" id="0x0232" />
+      <mail primitive="FP_MAC_SET_EXTENDED_HIGHER_LAYER_INF_PART_2" id="0x0233" />
+      <mail primitive="MAC_NO_EMISSION_SET_PREFFERED_CARRIER" id="0x0234" />
+      <mail primitive="FP_BEARER_DUAL_SLOT_REQ" id="0x0235" />
+      <mail primitive="FP_MAC_FORCE_DUAL_SLOT_REQ" id="0x0236" />
+      <mail primitive="FP_BROADCAST_QUALITY_IND_DEBUG" id="0x0237" />
+      <mail primitive="FP_BROADCAST_QUALITY_IND_DEBUG_2" id="0x0238" />
+      <mail primitive="FP_BROADCAST_QUALITY_SET_NEW_RSSI_LIMIT" id="0x0239" />
+      <mail primitive="FP_BROADCAST_QUALITY_SET_NEW_RSSI_LIMIT_2" id="0x023A" />
+      <mail primitive="FP_RSSI_SCAN_IND_JAPAN_CHANNEL_CHECK" id="0x023B" />
+      <mail primitive="FP_RSSI_SCAN_IND_JAPAN_DEBUG" id="0x023C" />
+      <mail primitive="FP_MAC_DEBUG_DUMMY_TIME_CHECK_FAILED" id="0x023D" />
+      <mail primitive="TIMEOUT_TI_0" id="0x023E" />
+      <mail primitive="TIMEOUT_TI_1" id="0x023F" />
+      <mail primitive="TIMEOUT_TI_2" id="0x0240" />
+      <mail primitive="TIMEOUT_TI_3" id="0x0241" />
+      <mail primitive="FP_MAC_CO_DATA_IND" id="0x0242" />
+      <mail primitive="FP_MAC_CO_DATA_REQ" id="0x0243" />
+      <mail primitive="FP_MAC_CO_DTR_IND" id="0x0244" />
+      <mail primitive="TIMEOUT_TI_4" id="0x0245" />
+      <mail primitive="TIMEOUT_TI_5" id="0x0246" />
+      <mail primitive="TIMEOUT_TI_8" id="0x0247" />
+      <mail primitive="TIMEOUT_TI_9" id="0x0248" />
+      <mail primitive="TIMEOUT_TI_10" id="0x0249" />
+      <mail primitive="TIMEOUT_TI_11" id="0x024A" />
+      <mail primitive="TIMEOUT_TI_12" id="0x024B" />
+      <mail primitive="TIMEOUT_TI_13" id="0x024C" />
+      <mail primitive="FP_BEARER_ENC_EKS_STOP_IND" id="0x024D" />
+      <mail primitive="FP_BEARER_ENC_EKS_IND_EARLY_ENCRYPTION" id="0x024E" />
+      <mail primitive="FP_MAC_ENC_EKS_IND_EARLY_ENCRYPTION" id="0x024F" />
+      <mail primitive="FP_MAC_CDPI_DATA_IND" id="0x0250" />
+      <mail primitive="FP_MAC_CDPI_DATA_REQ" id="0x0251" />
+      <mail primitive="FP_MAC_CDPI_DTR_IND" id="0x0252" />
+      <mail primitive="FP_MAC_ENC_KEY_REQ" id="0x0253" />
+      <mail primitive="FP_MAC_ENC_EKS_IND" id="0x0254" />
+      <mail primitive="FP_MAC_MOD_REQ" id="0x0255" />
+      <mail primitive="FP_MAC_MOD_IND" id="0x0256" />
+      <mail primitive="FP_MAC_MOD_CFM" id="0x0257" />
+      <mail primitive="FP_MAC_SET_ENROLL_BIT" id="0x0258" />
+      <mail primitive="FP_MAC_CLEAR_ENROLL_BIT" id="0x0259" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_LOCAL" id="0x025A" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_ADPCM" id="0x025B" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_SILENCE" id="0x025C" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_CLIP" id="0x025D" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_MINIGAP_DATA" id="0x025E" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_LU10" id="0x025F" />
+      <mail primitive="FP_MAC_CONNECT_BROADCAST_AUDIO" id="0x0260" />
+      <mail primitive="FP_TIMEOUT_AUDIO_QUEUE" id="0x0261" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_MINIGAP_DATA_FROM_QUEUE" id="0x0262" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_LU10_FROM_QUEUE" id="0x0263" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_LOCAL_FROM_QUEUE" id="0x0264" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_ADPCM_FROM_QUEUE" id="0x0265" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_SILENCE_FROM_QUEUE" id="0x0266" />
+      <mail primitive="FP_MAC_CONNECT_AUDIO_CLIP_FROM_QUEUE" id="0x0267" />
+      <mail primitive="FP_MAC_PAGE_REQ" id="0x0268" />
+      <mail primitive="FP_MAC_LONG_PAGE_REQ" id="0x0269" />
+      <mail primitive="FP_ALERT_BROADCAST_REQ" id="0x026A" />
+      <mail primitive="FP_MAC_ESCAPE_PT_REQ" id="0x026B" />
+      <mail primitive="FP_XBC_DEBUG_SETUP_FAILED_CRC_1_OTHER" id="0x026C" />
+      <mail primitive="FP_BEARER_FORCE_HANDOVER_REQ" id="0x026D" />
+      <mail primitive="FP_XBC_DEBUG_SETUP_FAILED_CRC_ADVANCED_ATTRIBUTES" id="0x026E" />
+      <mail primitive="FP_XBC_DEBUG_ATTRIBUTES_IGNORED_CAUSE_ADPCM_ON" id="0x026F" />
+      <mail primitive="NO_EMISSION_DEBUG__SYNC_FOUND_IND" id="0x0270" />
+      <mail primitive="NO_EMISSION_DEBUG__A_FIELD_FOUND_IND" id="0x0271" />
+      <mail primitive="NO_EMISSION_DEBUG__SYNC_FOUND_IND__NO_FREE_INSTANCE" id="0x0272" />
+      <mail primitive="FP_CCF_CLOSE_DUMMY" id="0x0273" />
+      <mail primitive="FP_BEARER_ENC_KEY_REQ" id="0x0274" />
+      <mail primitive="FP_BEARER_AUDIO_TO_BUFFER" id="0x0275" />
+      <mail primitive="FP_CCF_DEBUG_CLOSE_INSTANCE" id="0x0276" />
+      <mail primitive="FP_CCF_DEBUG_NEW_INSTANCE" id="0x0277" />
+      <mail primitive="TIMEOUT_MM_RE_KEYING" id="0x0278" />
+      <mail primitive="FP_TIMEOUT_LCE" id="0x0279" />
+      <mail primitive="FP_TIMEOUT_LAPC" id="0x027A" />
+      <mail primitive="FP_DL_SERVICE_MOD_REQ_CPLANE" id="0x027B" />
+      <mail primitive="FP_DL_SERVICE_MOD_CFM_CPLANE" id="0x027C" />
+      <mail primitive="FP_DL_SERVICE_MOD_IND_CPLANE" id="0x027D" />
+      <mail primitive="FP_DL_SERVICE_MOD_REQ" id="0x027E" />
+      <mail primitive="FP_DL_SERVICE_MOD_CFM" id="0x027F" />
+      <mail primitive="FP_DL_SERVICE_MOD_IND" id="0x0280" />
+      <mail primitive="FP_CC_DEBUG_NEW_INSTANCE" id="0x0281" />
+      <mail primitive="FP_CC_DEBUG_CLOSE_INSTANCE" id="0x0282" />
+      <mail primitive="FP_CISS_DEBUG_CLOSE_INSTANCE" id="0x0283" />
+      <mail primitive="FP_CISS_DEBUG_NEW_INSTANCE" id="0x0284" />
+      <mail primitive="FP_CISS_DEBUG_NO_ACTIVE_CISS_CONNECTION" id="0x0285" />
+      <mail primitive="FP_LC_DATA_REQ" id="0x0286" />
+      <mail primitive="FP_LC_DATA_IND" id="0x0287" />
+      <mail primitive="FP_LC_RELEASE_REQ" id="0x0288" />
+      <mail primitive="FP_LC_ENCRYPT_CRYPTED_IND" id="0x0289" />
+      <mail primitive="FP_DL_ESTABLISH_IND" id="0x028A" />
+      <mail primitive="FP_DL_DATA_IND" id="0x028B" />
+      <mail primitive="FP_DL_RELEASE_IND" id="0x028C" />
+      <mail primitive="FP_DL_RELEASE_CFM" id="0x028D" />
+      <mail primitive="FP_DL_DATA_REQ" id="0x028E" />
+      <mail primitive="FP_DL_ENCRYPT_IND" id="0x028F" />
+      <mail primitive="FP_DL_RELEASE_REQ" id="0x0290" />
+      <mail primitive="FP_LC_RELEASE_IND" id="0x0291" />
+      <mail primitive="FP_LAPC_DEBUG_CLOSE_INSTANCE" id="0x0292" />
+      <mail primitive="FP_LAPC_DEBUG_NEW_INSTANCE" id="0x0293" />
+      <mail primitive="FP_LC_DEBUG_CLOSE_INSTANCE" id="0x0294" />
+      <mail primitive="FP_LC_ENC_KEY_REQ" id="0x0295" />
+      <mail primitive="FP_LC_DEBUG_NEW_INSTANCE" id="0x0296" />
+      <mail primitive="FP_LC_DEBUG_GET_SLOT_TYPE" id="0x0297" />
+      <mail primitive="FP_LC_DEBUG_LONG_SLOT" id="0x0298" />
+      <mail primitive="FP_LC_DEBUG_DOUBLE_SLOT" id="0x0299" />
+      <mail primitive="FP_LC_DEBUG_FULL_SLOT" id="0x029A" />
+      <mail primitive="FP_LCE_DEBUG_CLOSE_INSTANCE" id="0x029B" />
+      <mail primitive="FP_LCE_DEBUG_NEW_INSTANCE" id="0x029C" />
+      <mail primitive="FP_LC_CF_TO_CS_REQ" id="0x029D" />
+      <mail primitive="FP_LC_CS_TO_CF_REQ" id="0x029E" />
+      <mail primitive="FP_LCE_CC_RELEASE_LINK_IND" id="0x029F" />
+      <mail primitive="FP_LCE_CC_RELEASE_LINK_REQ" id="0x02A0" />
+      <mail primitive="FP_LCE_MM_RELEASE_LINK_IND" id="0x02A1" />
+      <mail primitive="FP_LCE_MM_RELEASE_LINK_REQ" id="0x02A2" />
+      <mail primitive="FP_LCE_CISS_RELEASE_LINK_REQ" id="0x02A3" />
+      <mail primitive="FP_LCE_CISS_RELEASE_LINK_IND" id="0x02A4" />
+      <mail primitive="FP_MNCC_ALERT_REQ" id="0x02A5" />
+      <mail primitive="FP_MNCC_ALERT_IND" id="0x02A6" />
+      <mail primitive="FP_MNCC_CALL_PROC_REQ" id="0x02A7" />
+      <mail primitive="FP_MNCC_SETUP_ACK_REQ" id="0x02A8" />
+      <mail primitive="FP_MNCC_CONNECT_REQ" id="0x02A9" />
+      <mail primitive="FP_MNCC_CONNECT_IND" id="0x02AA" />
+      <mail primitive="FP_MNCC_CONNECT_CFM" id="0x02AB" />
+      <mail primitive="FP_MNCC_CONNECT_ACK_REQ" id="0x02AC" />
+      <mail primitive="FP_MNCC_HOLD_IND" id="0x02AD" />
+      <mail primitive="FP_MNCC_IWU_INFO_REQ" id="0x02AE" />
+      <mail primitive="FP_MNCC_IWU_INFO_IND" id="0x02AF" />
+      <mail primitive="FP_MNCC_INFO_IND" id="0x02B0" />
+      <mail primitive="FP_MNCC_INFO_REQ" id="0x02B1" />
+      <mail primitive="FP_MNCC_MODIFY_REQ" id="0x02B2" />
+      <mail primitive="FP_MNCC_MODIFY_IND" id="0x02B3" />
+      <mail primitive="FP_MNCC_REJECT_REQ" id="0x02B4" />
+      <mail primitive="FP_MNCC_REJECT_IND" id="0x02B5" />
+      <mail primitive="FP_MNCC_HOLD_ACK_RES" id="0x02B6" />
+      <mail primitive="FP_MNCC_HOLD_ACK_IND" id="0x02B7" />
+      <mail primitive="FP_MNCC_HOLD_REJECT_IND" id="0x02B8" />
+      <mail primitive="FP_MNCC_HOLD_REJECT_RES" id="0x02B9" />
+      <mail primitive="FP_MNCC_RETRIEVE_ACK_RES" id="0x02BA" />
+      <mail primitive="FP_MNCC_RETRIEVE_ACK_IND" id="0x02BB" />
+      <mail primitive="FP_MNCC_RETRIEVE_REJECT_IND" id="0x02BC" />
+      <mail primitive="FP_MNCC_RETRIEVE_REJECT_RES" id="0x02BD" />
+      <mail primitive="FP_MNCC_RELEASE_REQ" id="0x02BE" />
+      <mail primitive="FP_MNCC_RELEASE_IND" id="0x02BF" />
+      <mail primitive="FP_MNCC_RELEASE_CFM" id="0x02C0" />
+      <mail primitive="FP_MNCC_RELEASE_RES" id="0x02C1" />
+      <mail primitive="FP_MNCC_RETRIEVE_IND" id="0x02C2" />
+      <mail primitive="FP_MNCC_SETUP_REQ" id="0x02C3" />
+      <mail primitive="FP_MNCC_SETUP_IND" id="0x02C4" />
+      <mail primitive="FP_MNCC_FACILITY_REQ" id="0x02C5" />
+      <mail primitive="FP_MNCC_FACILITY_IND" id="0x02C6" />
+      <mail primitive="FP_MNCC_SERVICE_CHANGE_RES" id="0x02C7" />
+      <mail primitive="FP_MNCC_MODIFY_CFM_SUCCES" id="0x02C8" />
+      <mail primitive="FP_MNCC_MODIFY_CFM_FAILURE" id="0x02C9" />
+      <mail primitive="FP_MNCC_MODIFY_RES_SUCCES" id="0x02CA" />
+      <mail primitive="FP_MNCC_MODIFY_RES_FAILURE" id="0x02CB" />
+      <mail primitive="FP_MNCC_PROPRIETARY_IND" id="0x02CC" />
+      <mail primitive="FP_MNCC_CLSS_REQ" id="0x02CD" />
+      <mail primitive="FP_MNCC_CLSS_IND" id="0x02CE" />
+      <mail primitive="FP_MNCC_MODIFY_CFM" id="0x02CF" />
+      <mail primitive="FP_XXX_UNUSED_002" id="0x02D0" />
+      <mail primitive="FP_XXX_UNUSED_003" id="0x02D1" />
+      <mail primitive="FP_XXX_UNUSED_004" id="0x02D2" />
+      <mail primitive="FP_MNMM_DETACH_IND" id="0x02D3" />
+      <mail primitive="FP_MNMM_PT_TERM_ACC_RIGHTS_IND" id="0x02D4" />
+      <mail primitive="TIMEOUT_ENC_START" id="0x02D5" />
+      <mail primitive="FP_MNSS_SETUP_REQ" id="0x02D6" />
+      <mail primitive="FP_MNSS_FACILITY_REQ" id="0x02D7" />
+      <mail primitive="FP_MNSS_RELEASE_REQ" id="0x02D8" />
+      <mail primitive="FP_MNSS_RELEASE_IND" id="0x02D9" />
+      <mail primitive="FP_MNSS_SETUP_IND" id="0x02DA" />
+      <mail primitive="FP_MNSS_FACILITY_IND" id="0x02DB" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_RESUME_REQ" id="0x02DC" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_RESUME_CFM" id="0x02DD" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_RESUME_REJ" id="0x02DE" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_SUSPEND_REQ" id="0x02DF" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_SUSPEND_CFM" id="0x02E0" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_NONE_REQ" id="0x02E1" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_NONE_CFM" id="0x02E2" />
+      <mail primitive="FP_ULP_DLC_SERVICE_CHANGE_FAIL_IND" id="0x02E3" />
+      <mail primitive="FP_ULP_DLC_DTR_IND" id="0x02E4" />
+      <mail primitive="FP_ULP_DLC_DATA_IND" id="0x02E5" />
+      <mail primitive="FP_MAC_ULP_ENABLE_REQ" id="0x02E6" />
+      <mail primitive="FP_ULP_DLC_PAGE_REQ" id="0x02E7" />
+      <mail primitive="FP_ULP_DLC_FREE_DLBUF_REQ" id="0x02E8" />
+      <mail primitive="FP_LLME_CF_TO_CS_REQ" id="0x02E9" />
+      <mail primitive="FP_LLME_CS_TO_CF_REQ" id="0x02EA" />
+      <mail primitive="FP_MM_DATA_REQ" id="0x02EB" />
+      <mail primitive="FP_MM_DATA_IND" id="0x02EC" />
+      <mail primitive="PP_AUTHENTICATE_UAK_REQ" id="0x02ED" />
+      <mail primitive="PP_AUTHENTICATE_REJ" id="0x02EE" />
+      <mail primitive="FT_TERM_ACC_RIGHTS_REQ" id="0x02EF" />
+      <mail primitive="KEY_ALLOCATE_REQ" id="0x02F0" />
+      <mail primitive="KEY_ALLOCATE_CFM" id="0x02F1" />
+      <mail primitive="KEY_ALLOCATE_REJ" id="0x02F2" />
+      <mail primitive="PP_AUTHENTICATE_UAK_REQ__ASSIGN_DEFAULT_KEY" id="0x02F3" />
+      <mail primitive="FP_EARLY_ENC_NEW_KEY" id="0x02F4" />
+      <mail primitive="FP_MNMM_IDENTITY_REQ" id="0x02F5" />
+      <mail primitive="FP_MNMM_USER_AUTHENTICATE_REQ" id="0x02F6" />
+      <mail primitive="FP_MM_PRNG_ADD_ENTROPY" id="0x02F7" />
+      <mail primitive="FP_MNMM_INFO_SUGGEST_REQ" id="0x02F8" />
+      <mail primitive="FP_MNMM_ULE_AUTHENTICATE_UAK_REQ" id="0x02F9" />
+      <mail primitive="FP_MNMM_PP_AUTHENTICATE_AC_REQ" id="0x02FA" />
+      <mail primitive="FP_MNMM_PP_AUTHENTICATE_UAK_REQ" id="0x02FB" />
+      <mail primitive="FP_MNMM_PP_AUTHENTICATE_ACC" id="0x02FC" />
+      <mail primitive="FP_MNMM_PP_AUTHENTICATE_REJ" id="0x02FD" />
+      <mail primitive="FP_MNMM_FT_TERM_ACC_RIGHTS_REQ" id="0x02FE" />
+      <mail primitive="FP_MNMM_FT_TERM_ACC_RIGHTS_REJ" id="0x02FF" />
+      <mail primitive="FP_MNMM_FT_TERM_ACC_RIGHTS_ACC" id="0x0300" />
+      <mail primitive="FP_MNMM_LOCATION_UPDATE_REQ" id="0x0301" />
+      <mail primitive="FP_MNMM_CIPHER_REQ" id="0x0302" />
+      <mail primitive="FP_MNMM_ACCESS_RIGHTS_IND" id="0x0303" />
+      <mail primitive="FP_MNMM_LOCATE_IND" id="0x0304" />
+      <mail primitive="FP_MNCL_UNITDATA_REQ" id="0x0305" />
+      <mail primitive="FP_MNMM_FT_TERM_ACC_RIGHTS_IND_PP_NOT_ENROLLED" id="0x0306" />
+      <mail primitive="FP_CISS_DATA_REQ" id="0x0307" />
+      <mail primitive="FP_CISS_DATA_IND" id="0x0308" />
+      <mail primitive="FP_CISS_DATA_REQ__AND_LINK_RELEASE" id="0x0309" />
+      <mail primitive="FP_CC_DATA_REQ" id="0x030A" />
+      <mail primitive="FP_CC_DATA_IND" id="0x030B" />
+      <mail primitive="FP_CC_DATA_REQ__AND_LINK_RELEASE" id="0x030C" />
+      <mail primitive="FP_CC_ENCRYPT_IND" id="0x030D" />
+      <mail primitive="FP_CC_ENCRYPT_REJECT_IND" id="0x030E" />
+      <mail primitive="FP_MM_ENCRYPT_IND" id="0x030F" />
+      <mail primitive="CVM_FP_REPEATER_ACTIVE_REQ" id="0x0310" />
+      <mail primitive="FP_BEARER_REJECT_REQ" id="0x0311" />
+      <mail primitive="FP_ADVANCED_BEARER_UPLINK_CFM" id="0x0312" />
+      <mail primitive="FP_BEARER_CON_CTRL_HANDOVER_REQ" id="0x0313" />
+      <mail primitive="FP_BEARER_ACKNOWLEDGED_RELEASE_REQ" id="0x0314" />
+      <mail primitive="FP_MAC_DEBUG_BEARER_COUNTERS_INCREASED" id="0x0315" />
+      <mail primitive="FP_BEARER_T201_TIMEOUT_IND" id="0x0316" />
+      <mail primitive="FP_BEARER_BAD_UPLINK_SIGNAL_QUALITY_IND" id="0x0317" />
+      <mail primitive="FP_ADVANCED_BEARER_UPLINK_IND" id="0x0318" />
+      <mail primitive="FP_BEARER_BANDWIDTH_IND" id="0x0319" />
+      <mail primitive="FP_MAC_DEBUG_ASYM_WRONG_NT" id="0x031A" />
+      <mail primitive="FP_MAC_DEBUG_ASYM_WRONG_PMID" id="0x031B" />
+      <mail primitive="FP_MAC_DEBUG_ASYM_WRONG_LBN" id="0x031C" />
+      <mail primitive="FP_MAC_DEBUG_ASYM_MESSAGE_TYPE" id="0x031D" />
+      <mail primitive="FP_CC_DEBUG_NO_USER_AUTH_DOUBLE_SLOT_LOOPBACK" id="0x031E" />
+      <mail primitive="FP_BMC_DEBUG_MODCAL_SLOT" id="0x031F" />
+      <mail primitive="FP_BMC_DEBUG_MODCAL_SLOT_PREV_FULL" id="0x0320" />
+      <mail primitive="FP_BMC_DEBUG_MODCAL_SLOT_PREV_LONG" id="0x0321" />
+      <mail primitive="FP_MAC_DFC_REQ" id="0x0322" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_START_REQ" id="0x0323" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_START_CFM" id="0x0324" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_START_REJ" id="0x0325" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_STOP_REQ" id="0x0326" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_STOPPED_IND" id="0x0327" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_STOP_CFM" id="0x0328" />
+      <mail primitive="FP_XXX_UNUSED_001" id="0x0329" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_CHANNEL_REQ" id="0x032A" />
+      <mail primitive="FP_BEARER_CON_CTRL_HANDOVER_IND" id="0x032B" />
+      <mail primitive="FP_MAC_CF_DATA_REQ__COMPLETE_PACKET" id="0x032C" />
+      <mail primitive="FP_LC_DEBUG_C_SERVICE_MOD_PENDING" id="0x032D" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_AUDIO" id="0x032E" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_CF" id="0x032F" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_CF" id="0x0330" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_LOCAL" id="0x0331" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_LOCAL" id="0x0332" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_ADPCM_0" id="0x0333" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_ADPCM_0" id="0x0334" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_ADPCM_1" id="0x0335" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_ADPCM_1" id="0x0336" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_ADPCM_2" id="0x0337" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_ADPCM_2" id="0x0338" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_ADPCM_3" id="0x0339" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_ADPCM_3" id="0x033A" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_LONG_MUTE" id="0x033B" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_FULL_MUTE" id="0x033C" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_TX_START_ADPCM_PENDING" id="0x033D" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_AUDIO" id="0x033E" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_START_ADPCM_PENDING" id="0x033F" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_CF" id="0x0340" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_CF" id="0x0341" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_LOCAL" id="0x0342" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_LOCAL" id="0x0343" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_ADPCM_0" id="0x0344" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_ADPCM_0" id="0x0345" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_ADPCM_1" id="0x0346" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_ADPCM_1" id="0x0347" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_ADPCM_2" id="0x0348" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_ADPCM_2" id="0x0349" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_ADPCM_3" id="0x034A" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_ADPCM_3" id="0x034B" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_LONG_SCRATCH" id="0x034C" />
+      <mail primitive="FP_BMC_DEBUG_CONNECT_RX_FULL_SCRATCH" id="0x034D" />
+      <mail primitive="FP_MAC_CF_DEBUG_RX_ALL_CF" id="0x034E" />
+      <mail primitive="FP_MAC_CF_DEBUG_RX_AUDIO_CONNECTED" id="0x034F" />
+      <mail primitive="FP_MAC_CF_DEBUG_CRC" id="0x0350" />
+      <mail primitive="FP_MAC_CF_DEBUG_RX_NOT_ALL_CF" id="0x0351" />
+      <mail primitive="FP_BMC_DEBUG_BUILD_RX_SLOT" id="0x0352" />
+      <mail primitive="FP_BMC_DEBUG_BUILD_RX_SCAN_SLOT" id="0x0353" />
+      <mail primitive="FP_BMC_DEBUG_LOOPBACK" id="0x0354" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_TIMEOUT" id="0x0355" />
+      <mail primitive="FP_MAC_DEBUG_MAC_MODIFICATION_QUEUED" id="0x0356" />
+      <mail primitive="FP_MAC_DEBUG_MAC_MODIFICATION_DEQUEUED" id="0x0357" />
+      <mail primitive="FP_CF_DEBUG_DATA_1" id="0x0358" />
+      <mail primitive="FP_CF_DEBUG_DATA_2" id="0x0359" />
+      <mail primitive="FP_CF_DEBUG_DATA_3" id="0x035A" />
+      <mail primitive="FP_CF_DEBUG_DATA_4" id="0x035B" />
+      <mail primitive="FP_CF_DEBUG_DATA_5" id="0x035C" />
+      <mail primitive="FP_CF_DEBUG_DATA_6" id="0x035D" />
+      <mail primitive="FP_CF_DEBUG_DATA_7" id="0x035E" />
+      <mail primitive="FP_CF_DEBUG_DATA_8" id="0x035F" />
+      <mail primitive="FP_CF_DEBUG_DATA_9" id="0x0360" />
+      <mail primitive="FP_CF_DEBUG_DATA_10" id="0x0361" />
+      <mail primitive="FP_CF_DEBUG_DATA_CRC" id="0x0362" />
+      <mail primitive="FP_CF_DEBUG_DATA_CF_FROM_ADPCM_FRAME" id="0x0363" />
+      <mail primitive="FP_CF_DEBUG_DATA_SAVE_FRAME" id="0x0364" />
+      <mail primitive="FP_CF_DEBUG_DATA_COMPARE_FRAME" id="0x0365" />
+      <mail primitive="FP_CF_DEBUG_DATA_FIRST_BYTE_MATCH" id="0x0366" />
+      <mail primitive="FP_CF_DEBUG_DATA_NO_MATCH" id="0x0367" />
+      <mail primitive="FP_CF_DEBUG_DATA_FRAME_MATCH" id="0x0368" />
+      <mail primitive="FP_CF_DEBUG_DATA_MORE_THAN_1_MATCH" id="0x0369" />
+      <mail primitive="FP_MAC_PING_IND" id="0x036A" />
+      <mail primitive="FP_MM_DEBUG_INVALID_MMEI" id="0x036B" />
+      <mail primitive="FP_MM_DEBUG_INVALID_TI" id="0x036C" />
+      <mail primitive="FP_MM_DEBUG_CLEAR_STATE" id="0x036D" />
+      <mail primitive="FP_MM_DEBUG_ALLOC_MM_INST" id="0x036E" />
+      <mail primitive="HS_CRADLE_IND" id="0x036F" />
+      <mail primitive="HS_UNCRADLE_IND" id="0x0370" />
+      <mail primitive="FP_MAC_ESCAPE_PT_SYNC" id="0x0371" />
+      <mail primitive="FP_MNCC_HOLD_REQ" id="0x0372" />
+      <mail primitive="FP_MNCC_RETRIEVE_REQ" id="0x0373" />
+      <mail primitive="FP_MAC_JAPAN_DECT_SCAN_COMPLETE_IND" id="0x0374" />
+      <mail primitive="FP_MAC_JAPAN_DECT_ACTIVE_SCAN_COMPLETE_IND" id="0x0375" />
+      <mail primitive="FP_MAC_JAPAN_DECT_SCAN_DEBUG_IND" id="0x0376" />
+      <mail primitive="FP_MAC_JAPAN_DECT_SCAN_TIMEOUT" id="0x0377" />
+      <mail primitive="FP_MAC_DEBUG_ACCESS_REQ_BLOCKED_CARRIER" id="0x0378" />
+      <mail primitive="FP_MAC_DEBUG_ACCESS_REQ_RSSI_TOO_HIGH" id="0x0379" />
+      <mail primitive="FP_MAC_DEBUG_DBC_CLOSED_RSSI" id="0x037A" />
+      <mail primitive="FP_MAC_ASYM_BROADCAST_CHANNEL_CFM" id="0x037B" />
+      <mail primitive="FP_MAC_DUMMY_MOVE_TIMEOUT" id="0x037C" />
+      <mail primitive="FP_MAC_DEBUG_DUMMY_STOPPED" id="0x037D" />
+      <mail primitive="FP_MAC_DEBUG_WRONG_SLOT_1" id="0x037E" />
+      <mail primitive="FP_MAC_DEBUG_WRONG_SLOT_2" id="0x037F" />
+      <mail primitive="FP_MAC_ENC_EKS_IND_REKEYING" id="0x0380" />
+      <mail primitive="FP_LC_ENCRYPT_CRYPTED_IND_REKEYING" id="0x0381" />
+      <mail primitive="FP_DL_ENCRYPT_IND_REKEYING" id="0x0382" />
+      <mail primitive="FP_CC_ENCRYPT_IND_REKEYING" id="0x0383" />
+      <mail primitive="FP_MM_ENCRYPT_IND_REKEYING" id="0x0384" />
+      <mail primitive="FP_CC_ENCRYPT_REJECT_IND_REKEYING" id="0x0385" />
+      <mail primitive="FP_TBR22_START_AUTH" id="0x0386" />
+      <mail primitive="FP_MAC_LOCKED_IND" id="0x0387" />
+      <mail primitive="FP_BEARER_SYNC_REQ" id="0x0388" />
+      <mail primitive="FP_MAC_UNLOCKED_IND" id="0x0389" />
+      <mail primitive="TIMEOUT_FP_SERVICE_TASK" id="0x038A" />
+      <mail primitive="FP_MAC_STATUS_UPDATE" id="0x038B" />
+      <mail primitive="FP_RECOMMENDED_OTHER_BEARER_IND" id="0x038C" />
+      <mail primitive="FP_DUMMY_OR_CL_BEARER_POSITION_IND" id="0x038D" />
+      <mail primitive="FP_BROADCAST_QUALITY_IND_SLOT_USED" id="0x038E" />
+      <mail primitive="FP_DUMMY_OR_CL_BEARER_MARKER_IND" id="0x038F" />
+      <mail primitive="FP_BEARER_SYNC_CORRUPT_BROADCAST_CHANNEL_IND" id="0x0390" />
+      <mail primitive="FP_SYNC_DEBUG_WRONG_RFPI" id="0x0391" />
+      <mail primitive="FP_SYNC_DEBUG_WRONG_FRAME_NUMBER" id="0x0392" />
+      <mail primitive="FP_SYNC_DEBUG_WRONG_PRIMRECVCARRIER" id="0x0393" />
+      <mail primitive="FP_SYNC_DEBUG_WRONG_SLOT" id="0x0394" />
+      <mail primitive="FP_SYNC_DEBUG_WRONG_MULTIFRAME_NUMBER" id="0x0395" />
+      <mail primitive="FP_OTHER_BEARER_IND" id="0x0396" />
+      <mail primitive="FP_CL_BEARER_POSITION_IND" id="0x0397" />
+      <mail primitive="FP_SYNC_QUALITY_IND" id="0x0398" />
+      <mail primitive="FP_BEARER_HANDOVER_REQ" id="0x0399" />
+      <mail primitive="FP_MAC_ODD_MODE_REQ" id="0x039A" />
+      <mail primitive="FP_MAC_ODD_MODE_CFM" id="0x039B" />
+      <mail primitive="FP_MAC_ODD_MODE_CAPABILITY_IND" id="0x039C" />
+      <mail primitive="FP_PT_ESCAPE_CHANGE_TO_ODD_MODE_IND" id="0x039D" />
+      <mail primitive="FP_SYNC_DEBUG_BACKUP_SELECTED" id="0x039E" />
+      <mail primitive="FP_MAC_SLAVE_FOUND_IND" id="0x039F" />
+      <mail primitive="FP_SYNC_BACKUP_MASTER_STATUS_IND" id="0x03A0" />
+      <mail primitive="FP_SYNC_DEBUG_ODD_MODE_REQ" id="0x03A1" />
+      <mail primitive="FP_SYNC_DEBUG_SLAVE_LOST" id="0x03A2" />
+      <mail primitive="FP_SYNC_DEBUG_ODD_MODE_TIMEOUT" id="0x03A3" />
+      <mail primitive="FP_SYNC_TRIG_DEBUG_UPDATE_IND" id="0x03A4" />
+      <mail primitive="SYNC_TIMEOUT" id="0x03A5" />
+      <mail primitive="FP_MAC_SLAVE_ASYM_FOUND_IND" id="0x03A6" />
+      <mail primitive="FP_BEARER_SET_LOCAL_MODE_REQ" id="0x03A7" />
+      <mail primitive="FP_SYNC_TRIG_SLAVE_DBG_INFO_IND" id="0x03A8" />
+      <mail primitive="FP_BMC_DEBUG_ENABLE_ENC" id="0x03A9" />
+      <mail primitive="FP_SYNC_DEBUG_NEW_SLAVE" id="0x03AA" />
+      <mail primitive="FP_PT_ESCAPE_CHANGE_TO_EVEN_MODE_IND" id="0x03AB" />
+      <mail primitive="FP_MAC_EVEN_MODE_REQ" id="0x03AC" />
+      <mail primitive="FP_MAC_EVEN_MODE_CFM" id="0x03AD" />
+      <mail primitive="FP_MAC_SEARCH_TIMEOUT_IND" id="0x03AE" />
+      <mail primitive="FP_TIMEOUT_LCE_SHORT_PARTIAL_RELEASE" id="0x03AF" />
+      <mail primitive="FP_CISS_DATA_IND__CLMS" id="0x03B0" />
+      <mail primitive="FP_SYNC_FREERUNNING_IND" id="0x03B1" />
+      <mail primitive="FP_SYNC_DEBUG_RELOCK_WRONG_FRAME_NUMBER" id="0x03B2" />
+      <mail primitive="FP_SYNC_DEBUG_RELOCK_WRONG_SLOT" id="0x03B3" />
+      <mail primitive="FP_SYNC_MASTER_BACKUP_FAILOVER_REQ" id="0x03B4" />
+      <mail primitive="FP_SYNC_DEBUG_IGNORE_NEW_SOURCE" id="0x03B5" />
+      <mail primitive="FP_SYNC_NEW_SOURCE_FOUND_IND" id="0x03B6" />
+      <mail primitive="FP_SYNC_DEBUG_EVEN_MODE_REQ" id="0x03B7" />
+      <mail primitive="FP_SYNC_DEBUG_RELOCK_MISSING_INFO" id="0x03B8" />
+      <mail primitive="FP_SYNC_DEBUG_RELOCK_NOT_MASTER" id="0x03B9" />
+      <mail primitive="FP_MAC_DEBUG_NO_LONG_SLOT_ON_SLOT_11" id="0x03BA" />
+      <mail primitive="FP_MAC_DEBUG_LONG_SLOT_SECONH_HALF_NOT_FREE" id="0x03BB" />
+      <mail primitive="FP_MAC_CON_STAT_ENABLE_REQ" id="0x03BC" />
+      <mail primitive="FP_MAC_CON_STAT_DISABLE_REQ" id="0x03BD" />
+      <mail primitive="FP_MAC_CON_STAT_REQ" id="0x03BE" />
+      <mail primitive="FP_MAC_CO_DATA_REQ__COMPLETE_PACKET" id="0x03BF" />
+      <mail primitive="FP_MAC_CON_STAT_CFM" id="0x03C0" />
+      <mail primitive="FP_MNMM_ACCESS_RIGHTS_REJ_IND" id="0x03C1" />
+      <mail primitive="FP_TIMEOUT_FLUSH_LC_BUFFERS_CS" id="0x03C2" />
+      <mail primitive="FP_TIMEOUT_FLUSH_LC_BUFFERS_CF" id="0x03C3" />
+      <mail primitive="FP_BEARER_ACKNOWLEDGED_RELEASE_IND" id="0x03C4" />
+      <mail primitive="FP_DEBUG_FREQ_EXCLUDE_Q_IND" id="0x03C5" />
+      <mail primitive="FP_DEBUG_FREQ_EXCLUDE_RSSI_IND" id="0x03C6" />
+      <mail primitive="FP_DEBUG_FREQ_INCLUDE_IND" id="0x03C7" />
+      <mail primitive="FP_MAC_FORCE_CH_EXCLUDE_REQ" id="0x03C8" />
+      <mail primitive="GET_PROTOCOL_STATE_REQ" id="0x03C9" />
+      <mail primitive="FP_CC_PROTOCOL_STATE_CFM" id="0x03CA" />
+      <mail primitive="FP_MAC_DEBUG_HANDLE_DUMMY_1" id="0x03CB" />
+      <mail primitive="FP_MAC_DEBUG_HANDLE_DUMMY_2" id="0x03CC" />
+      <mail primitive="FP_MAC_DEBUG_HANDLE_DUMMY_3" id="0x03CD" />
+      <mail primitive="FP_MAC_DEBUG_HANDLE_DUMMY_4" id="0x03CE" />
+      <mail primitive="FP_BROADCAST_CHANNEL_REQ_1" id="0x03CF" />
+      <mail primitive="FP_MAC_DEBUG_CLOSE_DUMMY" id="0x03D0" />
+      <mail primitive="FP_MAC_REDUCE_POWER_REQ" id="0x03D1" />
+      <mail primitive="FP_BEARER_SET_REDUCED_POWER_REQ" id="0x03D2" />
+      <mail primitive="FP_BEARER_COPY_POWER_REQ" id="0x03D3" />
+      <mail primitive="FP_MAC_SET_LONG_SLOT_CAPABILITY" id="0x03D4" />
+      <mail primitive="FP_MAC_JDECT_CARRIERS_IND" id="0x03D5" />
+      <mail primitive="FP_MAC_DEBUG_PHS_SCAN_DATA" id="0x03D6" />
+      <mail primitive="FP_MAC_DEBUG_PHS_SCAN_COUNT" id="0x03D7" />
+      <mail primitive="API_FP_RESET_REQ" id="0x4000" description="This mail is used by the MMI to request the API to do a SW reset. The API will reinitialize the unit and return an API_PP_RESET_IND when the API is ready to accept commands from the MMI again." />
+      <mail primitive="API_FP_RESET_IND" id="0x4001" description="This mail is used to indicate that the device has been started (after power on or reset). This can be used by a host to detect reset of the device running the API if the host (MMI/application) and the API (the DECT system) are running on different devices." />
+      <mail primitive="API_FP_GET_FW_VERSION_REQ" id="0x4002" description="This command is used by the MMI to get the Firmware version of the unit." />
+      <mail primitive="API_FP_GET_FW_VERSION_CFM" id="0x4003" description="This mail is used to confirm the API_FP_GET_FW_VERSION_REQ command." />
+      <mail primitive="API_FP_SET_CRADLE_STATUS_REQ" id="0x407F" description="This mail is used by the MMI to notify the FP if a PP is placed in the cradle It is automatically send by the API at every change or instantly if requested by the API_FP_CRADLE_DETECT_REQ  *This can be used if an external cradle is featured on the the host in-stead of  on the FP. **The status is to be used to tell the FP if ECO mode can be enabled" />
+      <mail primitive="API_FP_CRADLE_DETECT_REQ" id="0x4080" description="This mail is used by the MMI to force the API to reply instantly with the cradle status (API_FP_CRADLE_DETECT_IND).  *This command is only valid if the FP features a cradle in the HW" />
+      <mail primitive="API_FP_CRADLE_DETECT_IND" id="0x4081" description="This mail is used by the API to indicate the cradle status to the MMI. (If a PP is placed in the FP cradle) It is automatically send by the API at every change or instantly if requested by the API_FP_CRADLE_DETECT_REQ  *This command is only valid if the FP features a cradle in the HW" />
+      <mail primitive="API_FP_SET_TIME_REQ" id="0x4082" description="This mail is by the MMI to set real time clock to a specific timestamp, then distribute it to the registered PP's." />
+      <mail primitive="API_FP_SET_TIME_CFM" id="0x4083" description="This mail is used by the API to confirm the API_FP_SET_TIME_REQ command." />
+      <mail primitive="API_FP_GET_TIME_REQ" id="0x4084" description="This mail is by the MMI to request the API to return the current timestamp." />
+      <mail primitive="API_FP_GET_TIME_CFM" id="0x4085" description="This mail is used by the API to confirm the API_FP_GET_TIME_REQ command. It holds the current time stamp." />
+      <mail primitive="API_FP_SET_TIME_IND" id="0x4086" description="This mail is used by the API to inform the MMI that a PP wish to change the time and date." />
+      <mail primitive="API_FP_SYNC_TIME_REQ" id="0x4087" description="This mail is by the MMI to synchronize time and date on a single PP." />
+      <mail primitive="API_FP_FEATURES_REQ" id="0x40A0" description="This command is used to enable/disable features in the FpGeneral API. Enabling/disabling of extended terminal id will also affect all other APIs using TerminalId." />
+      <mail primitive="API_FP_FEATURES_CFM" id="0x40A1" description="This command confirms the new feature settings." />
+      <mail primitive="SATURN_DECT_FP_RESET_REQ" id="0x4300" description="Perform a software reset and stop the DECT stack." />
+      <mail primitive="SATURN_DECT_FP_RESET_MAC_LAYER_REQ" id="0x4301" description="Perform a software MAC layer reset. The stack will re-initialize as though from power-up, and enter the DECT_FP_STACK_UNCONFIGURED state." />
+      <mail primitive="SATURN_DECT_FP_START_REQ" id="0x4302" description="Configure the DECT stack and start it running, which will eventually result in a dummy bearer being established. This will only have an effect on overall state if the DECT stack is &quot;DECT_FP_STACK_UNCONFIGURED&quot;, and the DECT stack will respond with a status message indicating that the state has changed to &quot;DECT_FP_STACK_RUNNING&quot;. The parameters program the RFPI, and the Higher Layer Capabilities. (The RFPI and HL caps will be passed to the LLME.) If DECT_FP_START is sent again later with a different RFPI (this should not normally be done), then the broadcast PARI will be changed." />
+      <mail primitive="SATURN_DECT_FP_DIS_REQ" id="0x4303" description="Close a connection. This would only be done in unusual circumstances; normally the PP is in control. It may be sent to close the new connection during connection handover, if the old connection closes too early, i.e. before handover is complete. It may be sent to close an old connection after connection handover, if the PP takes longer than a timeout (DL08, 500ms recommended) to close it. See EN 300 175-3 clause 8.1.6." />
+      <mail primitive="SATURN_DECT_FP_CON_STATE_REQ" id="0x4304" description="Request a status report for a connection. The stack should respond with a SATURN_DECT_FP_CON_STATE_IND." />
+      <mail primitive="SATURN_DECT_FP_DLC_PP_RX_REQ" id="0x4305" description="Receive DLC message from Host and forward it to PP on lmcei." />
+      <mail primitive="SATURN_DECT_FP_STACK_STATE_IND" id="0x4330" description="Indicate DECT stack status. Sent after post-reset initialization, and subsequently on any internal state change. Also sent as a side-effect of sending SATURN_DECT_FP_CON_STATE_IND." />
+      <mail primitive="SATURN_DECT_FP_SYNC_STATE_IND" id="0x4331" description="Indicate synchronization state, relative to the frame/multiframe sync signal received via the backhaul. Sent after post-reset initialization, and subsequently on any internal sync state change, or after DECT_FP_SET_SYNC_OFFSET is received. Also sent as a side-effect of sending SATURN_DECT_FP_CON_STATE_IND." />
+      <mail primitive="SATURN_DECT_FP_KEEP_ALIVE_IND" id="0x4332" description="Indicate that the DECT stack is still working. Intended as part of a watchdog system. Sent at regular intervals at all times after post-reset initialization. The interval will be hard-coded as a constant, value to be agreed." />
+      <mail primitive="SATURN_DECT_FP_CON_IND" id="0x4333" description="Radio indicates that a new DECT connection has been opened." />
+      <mail primitive="SATURN_DECT_FP_DIS_IND" id="0x4334" description="Radio indicates that a DECT connection has been lost." />
+      <mail primitive="SATURN_DECT_FP_CON_STATE_IND" id="0x4335" description="Radio indicates the current state of a MAC connection." />
+      <mail primitive="SATURN_DECT_FP_DLC_PP_TX_IND" id="0x4336" description="Receive DLC message from PP on lmcei and forward it to Host." />
+      <mail primitive="SATURN_DECT_FP_POE_VOLTAGE_LEVEL_IND" id="0x4337" description="Report PoE Voltage level to Host. Reported voltage is an average, which is send to the Host every minute." />
+      <mail primitive="SATURN_DECT_FP_SYNC_STAT_IND" id="0x4338" description="Radio indicates the time statistics regarding the sync lock. It measures the time difference between the 100Hz reference signal and the internal BMC generated signal. The indication is sent every sec." />
+      <mail primitive="SATURN_DECT_FP_JDECT_CARRIER_IND" id="0x4339" description="Indication with number of available carriers in the JDect spectrum" />
+      <mail primitive="API_ISP_IDENTIFY_REQ" id="0x47D0" description="Request flash identify and information." />
+      <mail primitive="API_ISP_IDENTIFY_CFM" id="0x47D1" description="Flash identify and information." />
+      <mail primitive="API_ISP_ERASE_REQ" id="0x47D2" description="Erase flash sectors." />
+      <mail primitive="API_ISP_ERASE_CFM" id="0x47D3" description="Flash sectors erased." />
+      <mail primitive="API_ISP_WRITE_REQ" id="0x47D4" description="Write flash data." />
+      <mail primitive="API_ISP_WRITE_CFM" id="0x47D5" description="Flash data written." />
+      <mail primitive="API_ISP_CRC_REQ" id="0x47D6" description="Calculate CRC16." />
+      <mail primitive="API_ISP_CRC_CFM" id="0x47D7" description="CRC16 result." />
+      <mail primitive="API_ISP_EMPTY_REQ" id="0x47D8" description="Check for empty flash area." />
+      <mail primitive="API_ISP_EMPTY_CFM" id="0x47D9" description="Empty result." />
+      <mail primitive="API_ISP_MD5_REQ" id="0x47DA" description="Calculate MD5." />
+      <mail primitive="API_ISP_MD5_CFM" id="0x47DB" description="MD5 result." />
+      <mail primitive="API_ISP_WRPTR_REQ" id="0x47DC" description="Write flash data from internal data pointer. Response is API_ISP_WRITE_CFM." />
+      <mail primitive="API_DIAGS_GET_STATUS_REQ" id="0x4B30" description="Get status of for current target." />
+      <mail primitive="API_DIAGS_GET_STATUS_CFM" id="0x4B31" description="Report various information about diagnostics in current target" />
+      <mail primitive="API_DIAGS_INIT_EVENT_LOG_DUMP_REQ" id="0x4B32" description="Init dump of Diags logs." />
+      <mail primitive="API_DIAGS_INIT_EVENT_LOG_DUMP_CFM" id="0x4B33" description="Flash sectors erased." />
+      <mail primitive="API_DIAGS_GET_NEXT_EVENT_LOG_ENTRY_REQ" id="0x4B34" description="Request next Diag log entry." />
+      <mail primitive="API_DIAGS_GET_NEXT_EVENT_LOG_ENTRY_CFM" id="0x4B35" description="Next log entry data." />
+      <mail primitive="API_DIAGS_GET_RUNTIME_ERROR_REQ" id="0x4B36" description="Get runtime error log data" />
+      <mail primitive="API_DIAGS_GET_RUNTIME_ERROR_CFM" id="0x4B37" description="Runtime error log data." />
+      <mail primitive="API_DIAGS_GET_ASSERT_LOG_REQ" id="0x4B38" description="Get assert log." />
+      <mail primitive="API_DIAGS_GET_ASSERT_LOG_CFM" id="0x4B39" description="Assert log data" />
+      <mail primitive="API_DIAGS_CLEAR_RUNTIME_ERROR_REQ" id="0x4B3A" description="Clear runtime error." />
+      <mail primitive="API_DIAGS_CLEAR_RUNTIME_ERROR_CFM" id="0x4B3B" description="Clear runtime error" />
+      <mail primitive="API_DIAGS_CLEAR_ASSERT_LOG_REQ" id="0x4B3C" description="Clear assert log." />
+      <mail primitive="API_DIAGS_CLEAR_ASSERT_LOG_CFM" id="0x4B3D" description="Clear asserts log." />
+      <mail primitive="API_DIAGS_CLEAR_EVENT_LOGS_REQ" id="0x4B3E" description="Clear events  log." />
+      <mail primitive="API_DIAGS_CLEAR_EVENT_LOGS_CFM" id="0x4B3F" description="Clear venet log" />
+      <mail primitive="API_FWU_ENABLE_REQ" id="0x4F00" description="The FWU Provider in the FP application uses this mail to enable or disable the FWU manager in the FP. The FWU manager is enabled when the FP starts after reset." />
+      <mail primitive="API_FWU_ENABLE_CFM" id="0x4F01" description="This mail is used by the FP to confirm the API_FWU_ENABLE_REQ command." />
+      <mail primitive="API_FWU_DEVICE_NOTIFY_IND" id="0x4F02" description="This mail is used by the FWU Manager in the FP to inform the FWU Provider about the devices available for FW download. Only one device, the FP module self, is supported in this implementation." />
+      <mail primitive="API_FWU_UPDATE_REQ" id="0x4F03" description="This mail is used by the FWU Provider in the FP application to inform the FWU manager in the FP that a new FW is available for the device specified." />
+      <mail primitive="API_FWU_UPDATE_CFM" id="0x4F04" description="This mail is used by the FP to confirm the API_FWU_UPDATE_REQ command." />
+      <mail primitive="API_FWU_UPDATE_IND" id="0x4F05" description="This mail is used by the FWU Manager in the FP to request information about the new FW available for the device specified." />
+      <mail primitive="API_FWU_UPDATE_RES" id="0x4F06" description="This mail is used by the FWU Provider in the FP to return FW information to the FWU Manager in the FP." />
+      <mail primitive="API_FWU_GET_BLOCK_IND" id="0x4F07" description="This mail is used by the FWU Manager in the FP to request a FW block from the FWU Provider in the FP application ." />
+      <mail primitive="API_FWU_GET_BLOCK_RES" id="0x4F08" description="This mail is used by the FWU Provider in the FP application to return a FW block to the FWU Manager in the FP." />
+      <mail primitive="API_FWU_GET_CRC_IND" id="0x4F09" description="This mail is used by the FWU Manager in the FP to request the CRC for a FW block from the FWU Provider in the FP application." />
+      <mail primitive="API_FWU_GET_CRC_RES" id="0x4F0A" description="This mail is used by the FWU Provider in the FP application to return the requested CRC to the FWU Manager in the FP." />
+      <mail primitive="API_FWU_COMPLETE_IND" id="0x4F0B" description="The FWU Manager in the FP uses this mail to indicate to the FWU Provider in the FP application that the FWU session is terminated. The FWU session is terminates when the complete FW ha been downloaded to the FP, but it will also be terminated  before a reset needed to switch from e.g. the main program to the FWU program. Finally the session can be terminated as result of an error detected by the FWU manager in the FP. It is hence necessary for the FWU provider to check the link date and the FwuMode in the API_FWU_DEVICE_NOTIFY_IND and restart the FWU process if needed. Normally the FWU process must be restarted once, that is after the FP has reset to switch from the mian program to the FWU program in the FLASH." />
+      <mail primitive="API_FWU_STATUS_IND" id="0x4F0C" description="The FWU Manager in the FP uses this mail to indicate the current status to the FWU Provider in the FP aplpication. The FP application does not have to handle this mail." />
+      <mail primitive="API_FWU_MULTI_CRC_IND" id="0x4F0D" description="This mail is used by the FWU Manager in the FP to request the CRC for a set FW block from the FWU Provider in the FP application." />
+      <mail primitive="API_FWU_MULTI_CRC_RES" id="0x4F0E" description="This mail is used by the FWU Provider in the FP application to return the requested CRC to the FWU Manager in the FP." />
+      <mail primitive="API_FWU_SET_FEATURES_REQ" id="0x4F10" description="This command is used to enable/disable features in the FWU API. Enabling/disabling of extended terminal id will also affect all other APIs using TerminalId." />
+      <mail primitive="API_FWU_SET_FEATURES_CFM" id="0x4F11" description="This command confirms the new feature settings." />
+      <mail primitive="API_FWU_GET_FEATURES_REQ" id="0x4F12" description="This command is used request the current feature settings." />
+      <mail primitive="API_FWU_GET_FEATURES_CFM" id="0x4F13" description="This command returns the current feature settings." />
+      <mail primitive="API_FWU_MD5_IND" id="0x4F14" description="This mail is used by the FWU Manager in the FP to request the CRC for a set FW block from the FWU Provider in the FP application." />
+      <mail primitive="API_FWU_MD5_RES" id="0x4F15" description="This mail is used by the FWU Provider in the FP application to return the requested CRC to the FWU Manager in the FP." />
+      <mail primitive="API_FWS_INIT_REQ" id="0x4F80" description="This mail is used to initialise the FWS handler." />
+      <mail primitive="API_FWS_INIT_CFM" id="0x4F81" description="This mail is used to confirm API_FWS_INIT_CFM." />
+      <mail primitive="API_FWS_TERMINATE_REQ" id="0x4F82" description="This mail is used to request the FWS handler to clean-up and free all resources. Used if FW download is interrupted or cancelled. A new API_FWS_INIT_REQ must be sent before a new FW download is started. This mail is also used to reboot the system when the application is ready in the case where the API_FWS_INIT_REQ mail is sent with ResetWhenDone = FALSE." />
+      <mail primitive="API_FWS_TERMINATE_CFM" id="0x4F83" description="This mail is used to confirm API_FWS_TERMIATE_REQ." />
+      <mail primitive="API_FWS_STATUS_IND" id="0x4F84" description="This mail is used to inform the application about the current state/status of the FWS module, and to report the progress of the FWS write process." />
+      <mail primitive="API_FWS_INFO_IND" id="0x4F85" description="This mail is used to inform the application about the current FW version etc." />
+      <mail primitive="API_FWS_WRITE_REQ" id="0x4F86" description="This mail is used to write FWS file data to the FWS handler." />
+      <mail primitive="API_FWS_WRITE_CFM" id="0x4F87" description="This mail is sent to the application when the data has been processed." />
+      <mail primitive="API_FWS_WRITE_EXT_DATA_REQ" id="0x4F88" description="This mail is used to write FWS file data to the FWS handler. A copy of the data is included in the mail, making it possible to use this mail from an application not sharing the memory space with the FWS handler. This mail is e.g. used when writing a *.fws file from a PC to a device via the RTX Embedded Access Interface (RtxEai)." />
+      <mail primitive="API_FWS_WRITE_EXT_DATA_CFM" id="0x4F89" description="This mail is sent to the application when the data has been processed." />
+      <mail primitive="RTX_EAP_TRACE_START_REQ" id="0xF000" />
+      <mail primitive="RTX_EAP_TRACE_START_CFM" id="0xF001" />
+      <mail primitive="RTX_EAP_TRACE_STOP_REQ" id="0xF002" />
+      <mail primitive="RTX_EAP_TRACE_STOP_CFM" id="0xF003" />
+      <mail primitive="RTX_EAP_TRACE_DOWNLOAD_REQ" id="0xF004" />
+      <mail primitive="RTX_EAP_TRACE_DOWNLOAD_CFM" id="0xF005" />
+      <mail primitive="RTX_EAP_TRACE_DOWNLOAD_START_REQ" id="0xF006" />
+      <mail primitive="RTX_EAP_TRACE_START_TIMER_IND" id="0xF007" />
+      <mail primitive="RTX_EAP_TRACE_STOP_TIMER_IND" id="0xF008" />
+      <mail primitive="RTX_EAP_TRACE_OUTPUT_MAIL_IND" id="0xF009" />
+      <mail primitive="RTX_EAP_TRACE_INPUT_MAIL_IND" id="0xF00A" />
+      <mail primitive="RTX_EAP_TRACE_COMMENT_IND" id="0xF00B" />
+      <mail primitive="RTX_EAP_TRACE_STOP_IND" id="0xF00C" />
+      <mail primitive="RTX_EAP_TRACE_PDU_IND" id="0xF00D" />
+      <mail primitive="RTX_EAP_TRACE_FUNCTION_IND" id="0xF00E" />
+      <mail primitive="RTX_EAP_TRACE_DATA_IND" id="0xF00F" />
+      <mail primitive="RTX_EAP_TRACE_IND" id="0xF010" />
+      <mail primitive="RTX_EAP_RUNTIME_ERROR_IND" id="0xF011" />
+      <mail primitive="RTX_EAP_ASSERT_IND" id="0xF012" />
+      <mail primitive="RTX_EAP_TRACE_TIME_INPUT_MAIL_IND" id="0xF013" />
+      <mail primitive="RTX_EAP_TRACE_TIME_OUTPUT_MAIL_IND" id="0xF014" />
+      <mail primitive="RTX_EAP_RESERVED_MAIL_2" id="0xF015" />
+      <mail primitive="RTX_EAP_TRACE_TIME_START_TIMER_IND" id="0xF016" />
+      <mail primitive="RTX_EAP_TRACE_TIME_STOP_TIMER_IND" id="0xF017" />
+      <mail primitive="RTX_EAP_RESERVED_MAIL_1" id="0xF018" />
+      <mail primitive="RTX_EAP_TARGET_TIME_INFO_IND" id="0xF019" />
+      <mail primitive="RTX_EAP_TRACE_COMMENT2_IND" id="0xF01A" />
+      <mail primitive="RTX_EAP_TRACE_TIME_COMMENT2_IND" id="0xF01B" />
+      <mail primitive="RTX_EAP_AFIELD_START_REQ" id="0xF020" />
+      <mail primitive="RTX_EAP_AFIELD_START_CFM" id="0xF021" />
+      <mail primitive="RTX_EAP_AFIELD_STOP_REQ" id="0xF022" />
+      <mail primitive="RTX_EAP_AFIELD_STOP_CFM" id="0xF023" />
+      <mail primitive="RTX_EAP_AFIELD_DATA_FP_RX_IND" id="0xF024" />
+      <mail primitive="RTX_EAP_AFIELD_DATA_FP_TX_IND" id="0xF025" />
+      <mail primitive="RTX_EAP_AFIELD_DATA_PP_RX_IND" id="0xF026" />
+      <mail primitive="RTX_EAP_AFIELD_DATA_PP_TX_IND" id="0xF027" />
+      <mail primitive="RTX_EAP_A_B_FULL_SLOT_DATA_FP_RX_IND" id="0xF028" />
+      <mail primitive="RTX_EAP_A_B_FULL_SLOT_DATA_FP_TX_IND" id="0xF029" />
+      <mail primitive="RTX_EAP_A_B_FULL_SLOT_DATA_PP_RX_IND" id="0xF02A" />
+      <mail primitive="RTX_EAP_A_B_FULL_SLOT_DATA_PP_TX_IND" id="0xF02B" />
+      <mail primitive="RTX_EAP_A_B_DOUBLE_SLOT_DATA_FP_RX_IND" id="0xF02C" />
+      <mail primitive="RTX_EAP_A_B_DOUBLE_SLOT_DATA_FP_TX_IND" id="0xF02D" />
+      <mail primitive="RTX_EAP_A_B_DOUBLE_SLOT_DATA_PP_RX_IND" id="0xF02E" />
+      <mail primitive="RTX_EAP_A_B_DOUBLE_SLOT_DATA_PP_TX_IND" id="0xF02F" />
+      <mail primitive="RTX_EAP_RAM_WRITE_REQ" id="0xF030" />
+      <mail primitive="RTX_EAP_RAM_READ_REQ" id="0xF031" />
+      <mail primitive="RTX_EAP_RAM_READ_CFM" id="0xF032" />
+      <mail primitive="RTX_EAP_RAM_WRITE_CFM" id="0xF033" />
+      <mail primitive="RTX_EAP_RAM_MEMSET_REQ" id="0xF034" />
+      <mail primitive="RTX_EAP_RAM_MEMSET_CFM" id="0xF035" />
+      <mail primitive="RTX_EAP_MEMORY_WRITE_WORD_REQ" id="0xF036" />
+      <mail primitive="RTX_EAP_MEMORY_WRITE_WORD_CFM" id="0xF037" />
+      <mail primitive="RTX_EAP_TRACE_INPUT_MAIL2_IND" id="0xF03C" />
+      <mail primitive="RTX_EAP_TRACE_TIME_INPUT_MAIL2_IND" id="0xF03D" />
+      <mail primitive="RTX_EAP_BMC_TRACE_START_REQ" id="0xF040" />
+      <mail primitive="RTX_EAP_BMC_TRACE_START_CFM" id="0xF041" />
+      <mail primitive="RTX_EAP_BMC_TRACE_STOP_REQ" id="0xF042" />
+      <mail primitive="RTX_EAP_BMC_TRACE_STOP_CFM" id="0xF043" />
+      <mail primitive="RTX_EAP_BMC_TRACE_MSG_IND" id="0xF044" />
+      <mail primitive="RTX_EAP_BMC_TRACE_START_REQ_MULTIBEARER" id="0xF045" />
+      <mail primitive="RTX_EAP_BMC_TRACE_MSG_IND_MULTIBEARER" id="0xF046" />
+      <mail primitive="RTX_EAP_BMC_TIME_TRACE_MSG_IND" id="0xF047" />
+      <mail primitive="RTX_EAP_BMC_TIME_TRACE_MSG_IND_MULTIBEARER" id="0xF048" />
+      <mail primitive="TEST_RSSIVUM_TRACE_START_REQ" id="0xF049" />
+      <mail primitive="TEST_RSSIVUM_TRACE_START_CFM" id="0xF04A" />
+      <mail primitive="TEST_RSSIVUM_TRACE_STOP_REQ" id="0xF04B" />
+      <mail primitive="TEST_RSSIVUM_TRACE_STOP_CFM" id="0xF04C" />
+      <mail primitive="TEST_RSSIVUM_TRACE_MSG_IND" id="0xF04D" />
+      <mail primitive="TEST_RSSIVUM_TRACE_ERRS_MSG_IND" id="0xF04E" />
+      <mail primitive="RTX_EAP_BMC_TRACE_EVENT_IND" id="0xF04F" />
+      <mail primitive="RTX_EAP_BMC_TRACE_TIME_EVENT_IND" id="0xF050" />
+      <mail primitive="RTX_EAP_BMC_TRACE_START_REQ_FP_SYNC" id="0xF051" />
+      <mail primitive="RTX_EAP_TRACE_TIME_START_EXTIMER_IND" id="0xF054" />
+      <mail primitive="RTX_EAP_TRACE_START_EXTIMER_IND" id="0xF055" />
+      <mail primitive="RTX_EAP_TRACE_TIME_STOP_EXTIMER_IND" id="0xF056" />
+      <mail primitive="RTX_EAP_TRACE_STOP_EXTIMER_IND" id="0xF057" />
+      <mail primitive="RTX_EAP_MODULE_TEST_START_REQ" id="0xF060" />
+      <mail primitive="RTX_EAP_MODULE_TEST_STOP_REQ" id="0xF061" />
+      <mail primitive="RTX_EAP_PROJECT_TEST_REQ" id="0xF062" />
+      <mail primitive="RTX_EAP_PROJECT_TEST_CFM" id="0xF063" />
+      <mail primitive="RTX_EAP_RF_TEST_REQ" id="0xF064" />
+      <mail primitive="RTX_EAP_RF_TEST_CFM" id="0xF065" />
+      <mail primitive="RTX_EAP_HW_TEST_REQ" id="0xF066" />
+      <mail primitive="RTX_EAP_HW_TEST_CFM" id="0xF067" />
+      <mail primitive="RTX_EAP_SW_TEST_REQ" id="0xF068" />
+      <mail primitive="RTX_EAP_SW_TEST_CFM" id="0xF069" />
+      <mail primitive="RTX_EAP_AUDIO_IND" id="0xF06A" />
+      <mail primitive="RTX_EAP_PRINTF_START_REQ" id="0xF070" />
+      <mail primitive="RTX_EAP_PRINTF_START_REQ_NO_CFM" id="0xF071" />
+      <mail primitive="RTX_EAP_PRINTF_START_CFM" id="0xF072" />
+      <mail primitive="RTX_EAP_PRINTF_STOP_REQ" id="0xF073" />
+      <mail primitive="RTX_EAP_PRINTF_STOP_CFM" id="0xF074" />
+      <mail primitive="RTX_EAP_PRINTF_IND" id="0xF075" />
+      <mail primitive="RTX_EAP_CLEAR_SCREEN_IND" id="0xF076" />
+      <mail primitive="RTX_EAP_SCREEN_GOTOXY_IND" id="0xF077" />
+      <mail primitive="RTX_EAP_TRACE_TIME_AFIELD_DATA_FP_RX_IND" id="0xF0B4" />
+      <mail primitive="RTX_EAP_TRACE_TIME_AFIELD_DATA_FP_TX_IND" id="0xF0B5" />
+      <mail primitive="RTX_EAP_TRACE_TIME_AFIELD_DATA_PP_RX_IND" id="0xF0B6" />
+      <mail primitive="RTX_EAP_TRACE_TIME_AFIELD_DATA_PP_TX_IND" id="0xF0B7" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_FULL_SLOT_DATA_FP_RX_IND" id="0xF0B8" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_FULL_SLOT_DATA_FP_TX_IND" id="0xF0B9" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_FULL_SLOT_DATA_PP_RX_IND" id="0xF0BA" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_FULL_SLOT_DATA_PP_TX_IND" id="0xF0BB" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_DOUBLE_SLOT_DATA_FP_RX_IND" id="0xF0BC" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_DOUBLE_SLOT_DATA_FP_TX_IND" id="0xF0BD" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_DOUBLE_SLOT_DATA_PP_RX_IND" id="0xF0BE" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_DOUBLE_SLOT_DATA_PP_TX_IND" id="0xF0BF" />
+      <mail primitive="RTX_EAP_TRACE_TIME_PDU_IND" id="0xF0C0" />
+      <mail primitive="RTX_EAP_TRACE_TIME_FUNCTION_IND" id="0xF0C1" />
+      <mail primitive="RTX_EAP_TRACE_TIME_DATA_IND" id="0xF0C2" />
+      <mail primitive="RTX_EAP_TRACE_TIME_IND" id="0xF0C3" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_LONG_SLOT_DATA_FP_RX_IND" id="0xF0C4" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_LONG_SLOT_DATA_FP_TX_IND" id="0xF0C5" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_LONG_SLOT_DATA_PP_RX_IND" id="0xF0C6" />
+      <mail primitive="RTX_EAP_TRACE_TIME_A_B_LONG_SLOT_DATA_PP_TX_IND" id="0xF0C7" />
+      <mail primitive="RTX_EAP_A_B_LONG_SLOT_DATA_FP_RX_IND" id="0xF0C8" />
+      <mail primitive="RTX_EAP_A_B_LONG_SLOT_DATA_FP_TX_IND" id="0xF0C9" />
+      <mail primitive="RTX_EAP_A_B_LONG_SLOT_DATA_PP_RX_IND" id="0xF0CA" />
+      <mail primitive="RTX_EAP_A_B_LONG_SLOT_DATA_PP_TX_IND" id="0xF0CB" />
+      <mail primitive="RTX_EAP_MEMORY_READ_REQ" id="0xF0E0" />
+      <mail primitive="RTX_EAP_MEMORY_READ_CFM" id="0xF0E1" />
+      <mail primitive="RTX_EAP_MEMORY_WRITE_REQ" id="0xF0E2" />
+      <mail primitive="RTX_EAP_MEMORY_WRITE_CFM" id="0xF0E3" />
+      <mail primitive="RTX_EAP_MEMORY_MEMSET_REQ" id="0xF0E4" />
+      <mail primitive="RTX_EAP_MEMORY_MEMSET_CFM" id="0xF0E5" />
+      <mail primitive="RTX_EAP_MEMORY_SET_DEFAULT_REQ" id="0xF0E6" />
+      <mail primitive="RTX_EAP_MEMORY_SET_DEFAULT_CFM" id="0xF0E7" />
+      <mail primitive="RTX_EAP_VERSION_REQ" id="0xF0F0" />
+      <mail primitive="RTX_EAP_VERSION_CFM" id="0xF0F1" />
+      <mail primitive="RTX_EAP_SW_BUILD_INFO_REQ" id="0xF0F2" />
+      <mail primitive="RTX_EAP_SW_BUILD_INFO_CFM" id="0xF0F3" />
+      <mail primitive="RTX_EAP_TARGET_RESET_IND" id="0xF0F4" />
+      <mail primitive="RTX_EAP_PACKET_CFM" id="0xF0F5" />
+      <mail primitive="RTX_EAP_PACKET_ERROR_IND" id="0xF0F6" />
+      <mail primitive="RTX_EAP_NVS_CACHE_EMPTY_REQ" id="0xF117" />
+      <mail primitive="RTX_EAP_NVS_CACHE_EMPTY_CFM" id="0xF118" />
+      <mail primitive="RTX_EAP_NVS_SET_DEFAULT_REQ" id="0xF119" />
+      <mail primitive="RTX_EAP_NVS_SET_DEFAULT_CFM" id="0xF11A" />
+      <mail primitive="RTX_EAP_NVS_READ_REQ" id="0xF11B" />
+      <mail primitive="RTX_EAP_NVS_READ_CFM" id="0xF11C" />
+      <mail primitive="RTX_EAP_NVS_WRITE_REQ" id="0xF11D" />
+      <mail primitive="RTX_EAP_NVS_WRITE_CFM" id="0xF11E" />
+      <mail primitive="RTX_EAP_NVS_SET_DOMAIN_REQ" id="0xF11F" />
+      <mail primitive="RTX_EAP_NVS_SET_DOMAIN_CFM" id="0xF120" />
+      <mail primitive="RTX_EAP_NVS_GET_DOMAIN_SIZE_REQ" id="0xF121" />
+      <mail primitive="RTX_EAP_NVS_GET_DOMAIN_SIZE_CFM" id="0xF122" />
+      <mail primitive="RTX_EAP_TRACESERVER_GET_LIST_REQ" id="0xF180" />
+      <mail primitive="RTX_EAP_TRACESERVER_GET_LIST_CFM" id="0xF181" />
+      <mail primitive="RTX_EAP_TRACESERVER_SELECT_TARGET_REQ" id="0xF182" />
+      <mail primitive="RTX_EAP_TRACESERVER_SELECT_TARGET_CFM" id="0xF183" />
+      <mail primitive="RTX_EAP_TRACESERVER_SELECT_TARGET_REJ" id="0xF184" />
+      <mail primitive="RTX_EAP_TRACESERVER_TARGET_DESC_IND" id="0xF185" />
+      <mail primitive="RTX_EAP_TRACESERVER_CONNECT_TARGET_REQ" id="0xF186" />
+      <mail primitive="RTX_EAP_TRACESERVER_CONNECT_TARGET_CFM" id="0xF187" />
+      <mail primitive="RTX_EAP_TRACESERVER_CONNECT_TARGET_REJ" id="0xF188" />
+      <mail primitive="RTX_EAP_TRACE_CREATE_RT_TIMER_IND" id="0xF1A0" />
+      <mail primitive="RTX_EAP_TRACE_DESTROY_RT_TIMER_IND" id="0xF1A1" />
+      <mail primitive="RTX_EAP_TRACE_START_RT_TIMER_IND" id="0xF1A2" />
+      <mail primitive="RTX_EAP_TRACE_STOP_RT_TIMER_IND" id="0xF1A3" />
+      <mail primitive="RTX_EAP_TRACE_MEM_ALLOC_IND" id="0xF1B0" />
+      <mail primitive="RTX_EAP_TRACE_MEM_FREE_IND" id="0xF1B1" />
+      <mail primitive="RTX_EAP_TRACE_ADD_WATCH_IND" id="0xF1B2" />
+      <mail primitive="RTX_EAP_GRAPH_DATA_IND" id="0xF1B3" />
+      <mail primitive="RTX_EAP_GRAPH_UPDATE_IND" id="0xF1B4" />
+      <mail primitive="RTX_EAP_KEY_PRESS_REQ" id="0xF1B5" />
+      <mail primitive="RTX_EAP_KEY_PRESS_CFM" id="0xF1B6" />
+      <mail primitive="RTX_EAP_ADD_GRAPH_IND" id="0xF1B7" />
+      <mail primitive="RTX_EAP_ADD_LINE_TO_GRAPH_IND" id="0xF1B8" />
+      <mail primitive="RTX_EAP_REMOVE_GRAPH_IND" id="0xF1B9" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_START_CFM" id="0xF1BA" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_START_REJ" id="0xF1BB" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_INFO_REQ" id="0xF1BC" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_INFO_CFM" id="0xF1BD" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_UPDATE_IND" id="0xF1BE" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_START_REQ" id="0xF1BF" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_STOP_REQ" id="0xF1C0" />
+      <mail primitive="RTX_EAP_FPSYNC_SLAVE_DBG_STOP_CFM" id="0xF1C1" />
+      <mail primitive="MOD_TEST_INIT_REQ" id="0xFA00" />
+      <mail primitive="MOD_TEST_CLOSE_REQ" id="0xFA01" />
+      <mail primitive="MOD_TEST_DEBUG_REQ" id="0xFA02" />
+      <mail primitive="MOD_TEST_INIT_CFM" id="0xFA03" />
+      <mail primitive="MOD_TEST_CLOSE_CFM" id="0xFA04" />
+      <mail primitive="MOD_TEST_SYSCFG_REQ" id="0xFA05" />
+      <mail primitive="MOD_TEST_SYSCFG_CFM" id="0xFA06" />
+      <mail primitive="MOD_TEST_START_TIMER_IND" id="0xFA07" />
+      <mail primitive="MOD_TEST_STOP_TIMER_IND" id="0xFA08" />
+      <mail primitive="MOD_TEST_READ_EEPROM_IND" id="0xFA09" />
+      <mail primitive="MOD_TEST_WRITE_EEPROM_IND" id="0xFA0A" />
+      <mail primitive="MOD_TEST_COMMENT_REQ" id="0xFA0B" />
+      <mail primitive="MOD_TEST_GET_DATA_REQ" id="0xFA0C" />
+      <mail primitive="MOD_TEST_GET_DATA_CFM" id="0xFA0D" />
+      <mail primitive="MOD_TEST_PUT_DATA_REQ" id="0xFA0E" />
+      <mail primitive="MOD_TEST_PUT_DATA_CFM" id="0xFA0F" />
+      <mail primitive="MOD_TEST_CLEAN_DATA_LIST_REQ" id="0xFA10" />
+      <mail primitive="MOD_TEST_CLEAN_DATA_LIST_CFM" id="0xFA11" />
+      <mail primitive="MOD_TEST_EXPIRE_DYNAMIC_TIMER_REQ" id="0xFA12" />
+      <mail primitive="MOD_TEST_START_DYNAMIC_TIMER_IND" id="0xFA13" />
+      <mail primitive="MOD_TEST_STOP_DYNAMIC_TIMER_IND" id="0xFA14" />
+      <mail primitive="MOD_TEST_RESET_REQ" id="0xFA15" />
+      <mail primitive="MOD_TEST_RESET_CFM" id="0xFA16" />
+      <mail primitive="RTX_EAP_TEST_CONNECTION_PING_PONG_IND" id="0xFF00" />
+    </mails>
+    <timers>
+      <timer name="EEPROM_TIMER" id="0x0000" description="EEPROM spooling timer" />
+      <timer name="RTX_EAI_PMM_TIMER" id="0x0001" />
+      <timer name="RTX_EAI_TX_TIMER0" id="0x0002" />
+      <timer name="RTX_EAI_TX_TIMER1" id="0x0003" />
+      <timer name="RTX_EAI_TX_TIMER2" id="0x0004" />
+      <timer name="RTX_EAI_TX_TIMER3" id="0x0005" />
+      <timer name="RTX_EAI_TX_TIMER4" id="0x0006" />
+      <timer name="RTX_EAI_TX_TIMER5" id="0x0007" />
+      <timer name="PT_EECACHEEMPTY_TIMER" id="0x0008" />
+      <timer name="PT_CALIBRATE_SOC_TIMER" id="0x0009" />
+      <timer name="UART_PMM_TIMER" id="0x000A" />
+      <timer name="ISP_TIMER" id="0x000B" />
+      <timer name="FP_DLC_TIMER_0" id="0x000C" />
+      <timer name="FP_DLC_TIMER_1" id="0x000D" />
+      <timer name="FP_DLC_TIMER_2" id="0x000E" />
+      <timer name="FP_DLC_TIMER_3" id="0x000F" />
+      <timer name="FP_DLC_TIMER_4" id="0x0010" />
+      <timer name="FP_DLC_TIMER_5" id="0x0011" />
+      <timer name="FP_DLC_TIMER_6" id="0x0012" />
+      <timer name="FP_DLC_TIMER_7" id="0x0013" />
+      <timer name="IWU_SOTI_TIMER" id="0x0014" />
+      <timer name="IWU_ALIVE_TIMER" id="0x0015" />
+      <timer name="IWU_OTA_REG_TIMER" id="0x0016" />
+      <timer name="IWU_POSTM_LOG_TIMER" id="0x0017" />
+      <timer name="IWU_MAC_CON_RES_TIMER_0" id="0x0018" />
+      <timer name="IWU_MAC_CON_RES_TIMER_1" id="0x0019" />
+      <timer name="IWU_MAC_CON_RES_TIMER_2" id="0x001A" />
+      <timer name="IWU_MAC_CON_RES_TIMER_3" id="0x001B" />
+      <timer name="IWU_MAC_CON_RES_TIMER_4" id="0x001C" />
+      <timer name="IWU_TESTMODE_SIGNAL_TIMER" id="0x001D" />
+      <timer name="GFU_START_REPONSE_TIMER" id="0x001E" />
+      <timer name="TIMER_MODCAL_TIMER" id="0x001F" />
+      <timer name="FP_CCF_JAPAN_DECT_TIMER" id="0x0020" />
+      <timer name="FP_CCF_DUMMY_MOVE_TIMER_1" id="0x0021" />
+      <timer name="FP_CCF_DUMMY_MOVE_TIMER_2" id="0x0022" />
+      <timer name="RSSI_SCAN_TIMER" id="0x0023" />
+      <timer name="DUMMY_BEARER_TIMER_1" id="0x0024" />
+      <timer name="DUMMY_BEARER_TIMER_2" id="0x0025" />
+      <timer name="FP_CCF_AUDIO_COMMAND_QUEUE_TIMER" id="0x0026" />
+      <timer name="FP_CCF_ASYM_BROADCAST_TIMER" id="0x0027" />
+      <timer name="FP_CCF_T218_0" id="0x0028" />
+      <timer name="FP_CCF_T218_1" id="0x0029" />
+      <timer name="FP_CCF_T218_2" id="0x002A" />
+      <timer name="FP_CCF_T218_3" id="0x002B" />
+      <timer name="FP_CCF_T218_4" id="0x002C" />
+      <timer name="FP_CCF_T218_5" id="0x002D" />
+      <timer name="FP_CCF_T218_6" id="0x002E" />
+      <timer name="FP_CCF_T218_7" id="0x002F" />
+      <timer name="FP_CCF_T218_8" id="0x0030" />
+      <timer name="FP_CCF_T218_9" id="0x0031" />
+      <timer name="FP_CCF_T218_10" id="0x0032" />
+      <timer name="FP_CCF_T218_11" id="0x0033" />
+      <timer name="LED_TIMER" id="0x0034" />
+      <timer name="DIAGS_SAVE_LOG_TIMER" id="0x0035" />
+      <timer name="FWU_MGR_TIMER0" id="0x0036" />
+      <timer name="FWU_MGR_TIMER1" id="0x0037" />
+      <timer name="FWU_MGR_TIMER2" id="0x0038" />
+      <timer name="FWU_MGR_TIMER3" id="0x0039" />
+      <timer name="FWU_MGR_TIMER4" id="0x003A" />
+      <timer name="FWU_MGR_TIMER5" id="0x003B" />
+      <timer name="FWU_MGR_TIMER6" id="0x003C" />
+      <timer name="FWU_MGR_TIMER7" id="0x003D" />
+      <timer name="FWU_MGR_TIMER8" id="0x003E" />
+      <timer name="FWU_MGR_TIMER9" id="0x003F" />
+      <timer name="FWU_MGR_TIMER10" id="0x0040" />
+      <timer name="FWU_CC_TIMER0" id="0x0041" />
+      <timer name="FWU_CC_TIMER1" id="0x0042" />
+      <timer name="FWU_CC_TIMER2" id="0x0043" />
+      <timer name="FWU_CC_TIMER3" id="0x0044" />
+      <timer name="FWU_CC_TIMER4" id="0x0045" />
+      <timer name="FWU_CC_TIMER5" id="0x0046" />
+      <timer name="FWU_CC_TIMER6" id="0x0047" />
+      <timer name="FWU_CC_TIMER7" id="0x0048" />
+      <timer name="FWU_CC_TIMER8" id="0x0049" />
+      <timer name="FWU_CC_TIMER9" id="0x004A" />
+      <timer name="FWU_CC_TIMER10" id="0x004B" />
+      <timer name="FWU_STATUS_TIMER" id="0x004C" />
+      <timer name="FWU_PRV_TIMER_ENABLE_ID" id="0x004D" />
+      <timer name="FWS_RESET_TIMER" id="0x004E" />
+    </timers>
+  </group>
+</rtxinterface>
