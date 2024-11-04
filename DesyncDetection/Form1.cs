@@ -186,11 +186,12 @@ namespace DesyncDetection
                         var newLine = line.Replace("[IPADDRESS]", transceiver.RemoteIPAddress.ToString());
                         list.Add(newLine);
                     }
-
-                    KillRSXApplet();
-                    Thread.Sleep(1000);
-                    File.WriteAllLines("RSX\\RtxEaiPortServer.ini", list);
                     KillRSXWindow();
+                    Thread.Sleep(500);
+                    KillRSXApplet();
+                    Thread.Sleep(500);
+                    File.WriteAllLines("RSX\\RtxEaiPortServer.ini", list);
+
 
                     ProcessStartInfo rsxProcess = new ProcessStartInfo();
                     rsxProcess.FileName = "RSX\\Rsx_rfp.exe";
