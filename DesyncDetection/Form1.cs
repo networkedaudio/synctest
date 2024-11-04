@@ -187,8 +187,10 @@ namespace DesyncDetection
                         list.Add(newLine);
                     }
 
+                    KillRSXApplet();
+                    Thread.Sleep(1000);
                     File.WriteAllLines("RSX\\RtxEaiPortServer.ini", list);
-                    KillRSX();
+                    KillRSXWindow();
 
                     ProcessStartInfo rsxProcess = new ProcessStartInfo();
                     rsxProcess.FileName = "RSX\\Rsx_rfp.exe";
@@ -231,7 +233,7 @@ namespace DesyncDetection
                             Thread.Sleep(10000);
                         }
 
-                        KillRSX();
+                        KillRSXWindow();
 
                         Thread.Sleep(1000);
 
@@ -246,7 +248,7 @@ namespace DesyncDetection
                         MessageBox.Show("Could not find RSX window");
                     }
 
-
+                    
                 }
             }
 
@@ -308,13 +310,22 @@ namespace DesyncDetection
 
             return fileHasZeros;
         }
+        private static void KillRSXApplet()
+        {
+                foreach (var process in Process.GetProcessesByName("RtxEaiPortServer"))
+            {
+                process.Kill();
+            }
 
-        private static void KillRSX()
+        }
+        private static void KillRSXWindow()
         {
             foreach (var process in Process.GetProcessesByName("rsx_rfp"))
             {
                 process.CloseMainWindow();
             }
+
+           
         }
 
         private void btnColor_Click(object sender, EventArgs e)

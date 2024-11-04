@@ -1,2 +1,2 @@
-18:53:38:863 Server v1.57 started [Windows v10.0]
-18:53:38:865 COM1 added.
+13:41:52:633 Server v1.57 started [Windows v10.0]
+13:41:52:772 COM1 added.
