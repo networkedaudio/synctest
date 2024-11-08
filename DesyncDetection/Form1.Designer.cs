@@ -43,6 +43,8 @@
             this.btnBlue = new System.Windows.Forms.Button();
             this.cmbSeconds = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -52,62 +54,69 @@
             // transceiverList
             // 
             this.transceiverList.FormattingEnabled = true;
-            this.transceiverList.Location = new System.Drawing.Point(3, 122);
+            this.transceiverList.Location = new System.Drawing.Point(2, 99);
+            this.transceiverList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.transceiverList.Name = "transceiverList";
-            this.transceiverList.Size = new System.Drawing.Size(888, 259);
+            this.transceiverList.Size = new System.Drawing.Size(667, 199);
             this.transceiverList.TabIndex = 12;
             // 
             // configurationDropDown
             // 
             this.configurationDropDown.FormattingEnabled = true;
-            this.configurationDropDown.Location = new System.Drawing.Point(102, 51);
+            this.configurationDropDown.Location = new System.Drawing.Point(76, 41);
+            this.configurationDropDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.configurationDropDown.Name = "configurationDropDown";
-            this.configurationDropDown.Size = new System.Drawing.Size(789, 24);
+            this.configurationDropDown.Size = new System.Drawing.Size(593, 21);
             this.configurationDropDown.TabIndex = 11;
             this.configurationDropDown.SelectedIndexChanged += new System.EventHandler(this.configurationDropDown_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 55);
+            this.label3.Location = new System.Drawing.Point(2, 45);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Configuration:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.Location = new System.Drawing.Point(2, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "EHX HXN File:";
             // 
             // projectFilename
             // 
-            this.projectFilename.Location = new System.Drawing.Point(102, 12);
+            this.projectFilename.Location = new System.Drawing.Point(76, 10);
+            this.projectFilename.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.projectFilename.Name = "projectFilename";
-            this.projectFilename.Size = new System.Drawing.Size(789, 22);
+            this.projectFilename.Size = new System.Drawing.Size(593, 20);
             this.projectFilename.TabIndex = 8;
             this.projectFilename.Text = "Select an HXN file...";
             this.projectFilename.Click += new System.EventHandler(this.projectFilename_Click);
             // 
             // roamingLog
             // 
-            this.roamingLog.Location = new System.Drawing.Point(12, 423);
+            this.roamingLog.Location = new System.Drawing.Point(9, 344);
+            this.roamingLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.roamingLog.Multiline = true;
             this.roamingLog.Name = "roamingLog";
             this.roamingLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.roamingLog.Size = new System.Drawing.Size(879, 101);
+            this.roamingLog.Size = new System.Drawing.Size(660, 83);
             this.roamingLog.TabIndex = 14;
             // 
             // btnNext
             // 
             this.btnNext.Enabled = false;
-            this.btnNext.Location = new System.Drawing.Point(728, 388);
+            this.btnNext.Location = new System.Drawing.Point(546, 315);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(163, 29);
+            this.btnNext.Size = new System.Drawing.Size(122, 24);
             this.btnNext.TabIndex = 13;
             this.btnNext.Text = "Scan";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -116,9 +125,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(806, 95);
+            this.checkBox1.Location = new System.Drawing.Point(604, 77);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(85, 20);
+            this.checkBox1.Size = new System.Drawing.Size(70, 17);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "Select All";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -127,18 +137,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 99);
+            this.label2.Location = new System.Drawing.Point(2, 80);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
+            this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Transceivers";
             // 
             // btnGreen
             // 
             this.btnGreen.Enabled = false;
-            this.btnGreen.Location = new System.Drawing.Point(3, 386);
+            this.btnGreen.Location = new System.Drawing.Point(2, 314);
+            this.btnGreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGreen.Name = "btnGreen";
-            this.btnGreen.Size = new System.Drawing.Size(100, 30);
+            this.btnGreen.Size = new System.Drawing.Size(75, 24);
             this.btnGreen.TabIndex = 17;
             this.btnGreen.Text = "[ ] Green";
             this.btnGreen.UseVisualStyleBackColor = true;
@@ -147,9 +159,10 @@
             // btnRed
             // 
             this.btnRed.Enabled = false;
-            this.btnRed.Location = new System.Drawing.Point(155, 387);
+            this.btnRed.Location = new System.Drawing.Point(116, 314);
+            this.btnRed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRed.Name = "btnRed";
-            this.btnRed.Size = new System.Drawing.Size(100, 30);
+            this.btnRed.Size = new System.Drawing.Size(75, 24);
             this.btnRed.TabIndex = 18;
             this.btnRed.Text = "[ ] Red";
             this.btnRed.UseVisualStyleBackColor = true;
@@ -158,9 +171,10 @@
             // btnBlue
             // 
             this.btnBlue.Enabled = false;
-            this.btnBlue.Location = new System.Drawing.Point(307, 387);
+            this.btnBlue.Location = new System.Drawing.Point(230, 314);
+            this.btnBlue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBlue.Name = "btnBlue";
-            this.btnBlue.Size = new System.Drawing.Size(100, 30);
+            this.btnBlue.Size = new System.Drawing.Size(75, 24);
             this.btnBlue.TabIndex = 19;
             this.btnBlue.Text = "[ ] Blue";
             this.btnBlue.UseVisualStyleBackColor = true;
@@ -191,25 +205,55 @@
             "180",
             "190",
             "200"});
-            this.cmbSeconds.Location = new System.Drawing.Point(657, 391);
+            this.cmbSeconds.Location = new System.Drawing.Point(493, 318);
+            this.cmbSeconds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbSeconds.Name = "cmbSeconds";
-            this.cmbSeconds.Size = new System.Drawing.Size(65, 24);
+            this.cmbSeconds.Size = new System.Drawing.Size(50, 21);
             this.cmbSeconds.TabIndex = 20;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(587, 394);
+            this.label4.Location = new System.Drawing.Point(440, 320);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 16);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 21;
             this.label4.Text = "Seconds:";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(90, 80);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(75, 17);
+            this.checkBox2.TabIndex = 22;
+            this.checkBox2.Text = "Pattern 00";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(169, 80);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(90, 17);
+            this.checkBox3.TabIndex = 23;
+            this.checkBox3.Text = "Pattern 55-aa";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 533);
+            this.ClientSize = new System.Drawing.Size(708, 451);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbSeconds);
             this.Controls.Add(this.btnBlue);
@@ -224,8 +268,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.projectFilename);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
-            this.Text = "Transceiver Sync Tester";
+            this.Text = "Transceiver Sync Tester v1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,6 +293,8 @@
         private System.Windows.Forms.Button btnBlue;
         private System.Windows.Forms.ComboBox cmbSeconds;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
 

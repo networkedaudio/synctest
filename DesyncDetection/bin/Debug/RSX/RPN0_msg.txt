@@ -1,2 +1,0 @@
-18:31:51:181 Server v1.57 started [Windows v10.0]
-18:31:51:183 COM1 added.
