@@ -1,0 +1,13 @@
+C:\Users\suppo\source\repos\synctest\DesyncDetection\bin\Debug\DesyncDetection.exe.config
+C:\Users\suppo\source\repos\synctest\DesyncDetection\bin\Debug\DesyncDetection.exe
+C:\Users\suppo\source\repos\synctest\DesyncDetection\bin\Debug\DesyncDetection.pdb
+C:\Users\suppo\source\repos\synctest\DesyncDetection\bin\Debug\Win32Interop.WinHandles.dll
+C:\Users\suppo\source\repos\synctest\DesyncDetection\bin\Debug\Win32Interop.WinHandles.xml
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.csproj.AssemblyReference.cache
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.Form1.resources
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.Properties.Resources.resources
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.csproj.GenerateResource.cache
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.csproj.CoreCompileInputs.cache
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.csproj.CopyComplete
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.exe
+C:\Users\suppo\source\repos\synctest\DesyncDetection\obj\Debug\DesyncDetection.pdb

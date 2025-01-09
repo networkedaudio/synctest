@@ -1,0 +1,67 @@
+   Logfile: C:\Users\suppo\source\repos\synctest\DesyncDetection\bin\Debug\RSX\mail.log   Date: 9-1-2025     Time: 9.29
+
+Mail trace options:
+   RTX_EAI_TASK        :                                     
+   API_TASK            :                                     
+   MOD_TEST_TASK       :                                     
+   DRV_MNG_TASK        :                                     
+   EEPROM_TASK         :                                     
+   RTX_EAI_PROXY_TASK  :                                     
+   TESTBUS_INTERRUPT_TA:                                     
+   PT_TASK             :                                     
+   UART_TASK           :                                     
+   VES_TASK            :                                     
+   ISP_TASK            :   Input    output           Comment 
+   BASECTRL_TASK       :                                     
+   ERROR_TASK          :                                     
+   FP_SERVICE_TASK     :                                     
+   FP_LC_TASK          :                                     
+   FP_LCE_TASK         :                                     
+   FP_LAPC_TASK        :                                     
+   IWU_TASK            :   Input    output           Comment 
+   DPI_SIM_TASK        :                                     
+   HOST_APP_TASK       :                                     
+   LED_TASK            :                                     
+   DIAGS_TASK          :                                     
+   SPI_DRIVER_TASK     :                                     
+   FWU_MANAGER_TASK    :                                     
+   Task 24             :                                     
+   Task 25             :                                     
+   Task 26             :                                     
+   Task 27             :                                     
+   Task 28             :                                     
+   Task 29             :                                     
+   Task 30             :                                     
+   MAC_INTERRUPT_TASK  :                                     
+   FP_CSF_TASK         :                                     
+   FP_CCF_TASK         :                                     
+   FP_RSSI_SCAN_TASK   :                                     
+   Task 35             :                                     
+   Task 36             :                                     
+   Task 37             :                                     
+   Task 38             :                                     
+   Task 39             :                                     
+   Task 40             :                                     
+   Task 41             :                                     
+   Task 42             :                                     
+   Task 43             :                                     
+   Task 44             :                                     
+   Task 45             :                                     
+   Task 46             :                                     
+   Task 47             :                                     
+   Task 48             :                                     
+   Task 49             :                                     
+   Task 50             :                                     
+   Task 51             :                                     
+   Task 52             :                                     
+   Task 53             :                                     
+   Task 54             :                                     
+   Task 55             :                                     
+   FWU_PRV_TASK        :                                     
+   FWS_TASK            :                                     
+   
+Primitives:
+   
+Exclude primitives:
+
+
