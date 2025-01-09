@@ -22,8 +22,6 @@ namespace DesyncDetection
 
         Project CurrentProject;
         Configuration CurrentConfiguration;
-        int CheckedListIndex = -1;
-        VirtualPort CurrentBeltpack;
         string[] INIText;
 
         Dictionary<string, Configuration> Configurations = new Dictionary<string, Configuration>();
@@ -259,6 +257,7 @@ namespace DesyncDetection
         private bool CheckFileForZeros(string filename, VirtualAntennaPort transceiver)
         {
             bool fileHasZeros = false;
+            bool fileHasPattern = false;
 
             if (File.Exists(filename))
             {
@@ -277,26 +276,34 @@ namespace DesyncDetection
                                 var spaces = fullLine[1].Split(' ');
                                 if (spaces.Length == 12)
                                 {
-                                    if (spaces[3] == "00")
+                                    if (cbSearchForZeros.Checked && spaces[3] == "00")
                                     {
                                         // log that this is OK
                                         fileHasZeros = true;
                                         break;
                                     }
+                                    else if (cbSearchForPattern.Checked && spaces[3] == "55" && spaces[6] == "aa")
+                                    {
+                                        // log that this is OK
+                                        fileHasPattern = true;
+                                        break;
+                                    }
                                 }
-
                             }
-
                         }
                     }
 
                     if (fileHasZeros)
                     {
-                        roamingLog.AppendText($"Transceiver {transceiver.Label.TalkListen}:{transceiver.Description}{Environment.NewLine} looks fine.{Environment.NewLine}");
+                        roamingLog.AppendText($"Transceiver {transceiver.Label.TalkListen}:{transceiver.Description}{Environment.NewLine} Pattern 00 found.{Environment.NewLine}");
+                    }
+                    else if (fileHasPattern)
+                    {
+                        roamingLog.AppendText($"Transceiver {transceiver.Label.TalkListen}:{transceiver.Description}{Environment.NewLine} Pattern 55-aa found.{Environment.NewLine}");
                     }
                     else
                     {
-                        MessageBox.Show($"Transceiver {transceiver.Label.TalkListen}:{transceiver.Description}{Environment.NewLine}File does not have zeros - {filename}{Environment.NewLine}It may take up to a minute or a minute and a half to be sure, but this looks bad.");
+                        MessageBox.Show($"Transceiver {transceiver.Label.TalkListen}:{transceiver.Description}{Environment.NewLine}File does not have required pattern- {filename}{Environment.NewLine}It may take up to a minute or a minute and a half to be sure, but this looks bad.");
                     }
                 }
                 else
@@ -309,7 +316,7 @@ namespace DesyncDetection
                 MessageBox.Show("File not found - " + filename);
             }
 
-            return fileHasZeros;
+            return (fileHasZeros || fileHasPattern);
         }
         private static void KillRSXApplet()
         {
